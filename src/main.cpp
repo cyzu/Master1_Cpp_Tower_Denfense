@@ -15,12 +15,14 @@ int main(int argc, char * argv[])
     
     Engine e(argc,argv);
     
-    std::vector<Papillon *> paps;
+    std::vector<Vaisseau * > vaisseau;
+    
+    //std::vector<Papillon *> paps;
 //    std::vector<Fourmis *> four;
     
-    GraphicEngine * geP = new MyGraphicEngine(&paps);
-    GameEngine * gmeP = new MyGameEngine(&paps);
-    ControlEngine * ceP = new MyControlEngine(&paps);
+    GraphicEngine * ge = new MyGraphicEngine(&vaisseau);
+    GameEngine * gme = new MyGameEngine(&vaisseau);
+    ControlEngine * ce = new MyControlEngine(&vaisseau);
 
 //    GraphicEngine * geF = new MyGraphicEngine(&four);
 //    GameEngine * gmeF = new MyGameEngine(&four);
@@ -32,9 +34,9 @@ int main(int argc, char * argv[])
         paps.push_back(new Papillon((x-400) / 400.f, (y-300)/ -300.f ));
     }*/
 
-    e.setGraphicEngine(geP);
-    e.setGameEngine(gmeP);
-    e.setControlEngine(ceP);
+    e.setGraphicEngine(ge);
+    e.setGameEngine(gme);
+    e.setControlEngine(ce);
     
 //    e.setGraphicEngine(geF);
 //    e.setGameEngine(gmeF);

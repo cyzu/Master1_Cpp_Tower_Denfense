@@ -18,6 +18,7 @@
 		2EFFA1101F891BEE00D3BA04 /* libEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFFA10F1F891BEE00D3BA04 /* libEngine.a */; };
 		7D8BB33D1F8E621400BC2230 /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = 7D8BB33C1F8E621400BC2230 /* makefile */; };
 		7DA17A4C1FC6156A0051DC49 /* Vaisseau.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DA17A4A1FC6156A0051DC49 /* Vaisseau.cpp */; };
+		7DA6C7011FC71B9900E87707 /* Case.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6C6FF1FC71B9900E87707 /* Case.cpp */; };
 		7DF996111F912862001A128C /* Foumis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D8BB3391F8E5C3800BC2230 /* Foumis.cpp */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,8 @@
 		7D8BB33C1F8E621400BC2230 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
 		7DA17A4A1FC6156A0051DC49 /* Vaisseau.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vaisseau.cpp; sourceTree = "<group>"; };
 		7DA17A4B1FC6156A0051DC49 /* Vaisseau.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vaisseau.h; sourceTree = "<group>"; };
+		7DA6C6FF1FC71B9900E87707 /* Case.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Case.cpp; sourceTree = "<group>"; };
+		7DA6C7001FC71B9900E87707 /* Case.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Case.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +138,8 @@
 				2EFFA1001F89199500D3BA04 /* Papillon.h */,
 				7D8BB3391F8E5C3800BC2230 /* Foumis.cpp */,
 				7D8BB33A1F8E5C3800BC2230 /* Foumis.h */,
+				7DA6C6FF1FC71B9900E87707 /* Case.cpp */,
+				7DA6C7001FC71B9900E87707 /* Case.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 				2EFFA1071F89199500D3BA04 /* Papillon.cpp in Sources */,
 				2EFFA1051F89199500D3BA04 /* MyGameEngine.cpp in Sources */,
 				7D8BB33D1F8E621400BC2230 /* makefile in Sources */,
+				7DA6C7011FC71B9900E87707 /* Case.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

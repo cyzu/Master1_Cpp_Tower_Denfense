@@ -9,6 +9,7 @@
 #ifndef Vaisseau_h
 #define Vaisseau_h
 
+#include "GraphicPrimitives.h"
 #include <stdio.h>
 
 class Vaisseau{
@@ -16,7 +17,7 @@ class Vaisseau{
     private :
     
     float x,y;
-    float ligne, frequence, vitesse, puissance;
+    float frequence, vitesse, puissance;
     
     public :
     
@@ -24,9 +25,9 @@ class Vaisseau{
      Constructeurs / destructeur 
      */
     
-    Vaisseau(float x, float y,
-             float l = 0, float f = 1,
-             float v = 1, float p = 1);
+    Vaisseau(const float x, const float y,
+             const float f = 1, const float v = 1,
+             const float p = 1);
     
     Vaisseau(const Vaisseau &v);
     ~Vaisseau();
@@ -37,14 +38,12 @@ class Vaisseau{
     
     float getX();
     float getY();
-    float getLigne();
     float getFrequence();
     float getVitesse();
     float getPuissance();
     
     void setX(const float a);
     void setY(const float a);
-    void setLigne(const float l);
     void setFrequence(const float f);
     void setVitesse(const float v);
     void setPuissance(const float p);
@@ -54,6 +53,7 @@ class Vaisseau{
      */
     
     void draw();
+    void tick();
     
     
     
