@@ -45,6 +45,6 @@ void Vaisseau::setVitesse(const float v){ vitesse = v;}
 void Vaisseau::setPuissance(const float p){ puissance = p;}
 
 void Vaisseau::draw(){
-    GraphicPrimitives::drawFillTriangle2D(posX1, posY1, posX2, posY2, posX3, posY3, 0.5f, 0.5f, 0.5f);
+    //GraphicPrimitives::drawFillTriangle2D(posX1, posY1, posX2, posY2, posX3, posY3, 0.5f, 0.5f, 0.5f);
 }
 
