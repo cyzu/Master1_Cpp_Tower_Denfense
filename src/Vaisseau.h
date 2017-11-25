@@ -16,8 +16,10 @@ class Vaisseau{
     
     private :
     
-    float x,y;
+    float x, y;
+    float posX1, posY1, posX2, posY2, posX3, posY3;
     float frequence, vitesse, puissance;
+    float r,b,g;
     
     public :
     
@@ -30,7 +32,6 @@ class Vaisseau{
              const float p = 1);
     
     Vaisseau(const Vaisseau &v);
-    ~Vaisseau();
     
     /* 
      Getter / setter 

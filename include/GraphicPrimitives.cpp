@@ -98,15 +98,12 @@ void GraphicPrimitives::drawLine2D(float x1,float y1,float x2,float y2,float r,f
 void GraphicPrimitives::drawFillTriangle2D(float x1,float y1,float x2,float y2,float x3,float y3,float r,float g, float b,float a ){
     glPushMatrix();
     glPushAttrib(GL_CURRENT_BIT);
-    
     glColor4f (r,g,b,a);
     glBegin (GL_TRIANGLES);
-    
     
     glVertex3f (x1,y1,0);
     glVertex3f (x2,y2,0);
     glVertex3f (x3,y3,0);
-    
     
     glEnd();
     glPopAttrib(); // This sets the colour back to its original value

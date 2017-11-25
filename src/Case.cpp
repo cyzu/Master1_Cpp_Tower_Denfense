@@ -9,7 +9,7 @@
 #include "Case.h"
 #include <iostream>
 
-float Case::nb_lignes = 10;
+float Case::nb_lignes = 3;
 
 float Case::getCaseX(const int x){
     //i*10 + nb_lignes

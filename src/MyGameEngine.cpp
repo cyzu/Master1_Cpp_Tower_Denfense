@@ -6,7 +6,10 @@ void MyGameEngine::idle(){
     /*for (int i = 0; i < paps->size(); i++) {
         (*paps)[i]->tick();
     }*/
-    /*for (int i = 0; i < vaisseau->size(); i++) {
-        (*vaisseau)[i]->tick();
+    /*for (int i = 0; i < four->size(); i++) {
+        (*four)[i]->tick();
     }*/
+    for (int i = 0; i < vaisseau->size(); i++) {
+        (*vaisseau)[i]->tick();
+    }
 }

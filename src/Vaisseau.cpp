@@ -8,24 +8,37 @@
 
 #include "Vaisseau.h"
 
-Vaisseau::Vaisseau(const float x1, const float y1, const float f, const float v, const float p){
-    x = x1;
-    y = y1;
+Vaisseau::Vaisseau(const float x_, const float y_, const float f, const float v, const float p){
+    x = x_;
+    y = y_;
+    
+    posX1 = x+0.05;
+    posY1 = y;
+    posX2 = x-0.05;
+    posY2 = y+0.05;
+    posX3 = x-0.05;
+    posY3 = y-0.05;
+    
     frequence = f;
     vitesse = v;
     puissance = p;
+    
+    r = 0.0f;
+    b = 0.0f;
+    g = 1.0f;
 }
 
 Vaisseau::Vaisseau(const Vaisseau &v){
     x = v.x;
     y = v.y;
+    
     frequence = v.frequence;
     vitesse = v.vitesse;
     puissance = v.puissance;
-}
-
-Vaisseau::~Vaisseau(){
-    delete this;
+    
+    r = v.r;
+    g = v.g;
+    b = v.b;
 }
 
 float Vaisseau::getX(){ return x; }
@@ -42,11 +55,51 @@ void Vaisseau::setPuissance(const float p){ puissance = p;}
 
 void Vaisseau::draw(){
     printf("Dans draw()\n");
-    GraphicPrimitives::drawFillTriangle2D(x+0.05, y, x-0.05, y+0.05, x-0.05, y-0.05, 0.0f, 1.0f, 0.0f);
+    GraphicPrimitives::drawFillTriangle2D(x+0.05, y, x-0.05, y+0.05, x-0.05, y-0.05, r, g, b);
 }
 
 void Vaisseau::tick(){
-    x = 0.5;
-    y = 0.5;
-
+    posX1 += 0.05;                             //VECTEUR DEPLACEMENTS
+    if (x > 1.0f /*- 0.1*/ || x < -1.0f) {  // LIMITES DES BORDURES FENÊTRES
+        /* bord gauche */
+        //VposX  = -VposX;
+        x -= 0.05;
+    }
+    
+    posY1 += 0.05;
+    if (y > 1.0f /*- 0.1*/ || y < -1.0f) {
+        /* en bas */
+        //VposY = -VposY;
+        y -= 0.05;
+    }
+    
+    posX2 = posX1 - 0.05;//+= VposX;
+    if (posX2 > 1.0f /*- 0.1*/ || posX2 < -1.0f) {
+        /* bord droit */
+        
+        //VposX = -VposX;
+        posX2 -= 0.05;
+    }
+    
+    posY2 = posY1 + 0.05; //+= VposY;
+    if (posY2 > 1.0f /*- 0.1*/ || posY2 < -1.0f) {
+        
+        //VposY = -VposY;
+        posY2 -= 0.05;
+    }
+    
+    posX3 = posX1 - 0.05; //+= VposX;
+    if (posX3 > 1.0f /*- 0.1*/ || posX3 < -1.0f) {
+        
+        //VposX = -VposX;
+        posX3 -= 0.05;
+    }
+    
+    posY3 = posY1 - 0.05; //+= VposY;
+    if (posY3 > 1.0f /*- 0.1*/ || posY3 < -1.0f) {
+        /*en haut */
+        
+        //VposY = -VposY;
+        posY3 -= 0.05;
+    }
 }

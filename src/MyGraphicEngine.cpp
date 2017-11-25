@@ -12,15 +12,18 @@ void MyGraphicEngine::Draw(){
     
     //std::string strCountP =  std::to_string(paps->size()) + " papillons";
     //GraphicPrimitives::drawText2D(&strCountP[0],-0.9f,0.8f,1.0f,1.0f, 0.5f);
-//    std::string strCountF =  std::to_string(four->size()) + " fourmis";
+    //std::string strCountF =  std::to_string(four->size()) + " fourmis";
 //    GraphicPrimitives::drawText2D(&strCountF[0],-0.9f,0.7f,1.0f,1.0f, 0.5f);
 
     //for (int i = 0; i < paps->size(); i++) {
         //(*paps)[i]->draw();
     //}
-//    for (int i = 0; i < four->size(); i++) {
-//        (*four)[i]->draw();
-//    }
+    /*for (int i = 0; i < four->size(); i++) {
+        (*four)[i]->draw();
+    }*/
+    for (int i = 0; i < vaisseau->size(); i++) {
+        (*vaisseau)[i]->draw();
+    }
 
     
     
