@@ -18,7 +18,7 @@ class Vaisseau{
     
     float x, y;
     float posX1, posY1, posX2, posY2, posX3, posY3;
-    float frequence, vitesse, puissance;
+    float frequence, vitesse, puissance; //longueur des missiles varie en fonction de la puissance
     float r,b,g;
     
     public :

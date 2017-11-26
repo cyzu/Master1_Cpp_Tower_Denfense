@@ -7,15 +7,17 @@
 //
 
 #include "Case.h"
+#include "Engine.h"
 #include <iostream>
 
-float Case::nb_lignes = 3;
+float Case::nb_lignes = 1;
 
 float Case::getCaseX(const int x){
-    //i*10 + nb_lignes
     
-    float posX = (x-400) / 400.0;
-    float i = -0.8;
+    float window = glutGet(GLUT_WINDOW_WIDTH)/2;
+    float posX = (x - window) / window;
+    
+    float i = -1;
     while(i < 1 && posX > i){
         i += 0.2;
     }
@@ -24,10 +26,10 @@ float Case::getCaseX(const int x){
 }
 
 float Case::getCaseY(const int y){
-    //i*10 + nb_lignes
-    float posY = (y-300) / 300.0;
-
-    float i = -0.8;
+    float window = glutGet(GLUT_WINDOW_HEIGHT)/2;
+    float posY = (y - window) / window;
+    
+    float i = -1;
     while(i < 1 && posY > i){
         i += 2/nb_lignes;
     }
