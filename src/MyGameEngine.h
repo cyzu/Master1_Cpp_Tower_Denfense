@@ -1,8 +1,6 @@
 #pragma once
 
 #include "Engine.h"
-#include "Papillon.h"
-#include "Foumis.h"
 #include "Vaisseau.h"
 
 class MyGameEngine:public GameEngine {

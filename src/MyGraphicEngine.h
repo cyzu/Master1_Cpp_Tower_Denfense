@@ -1,8 +1,6 @@
 #pragma once
 #include "Engine.h"
 #include "GraphicPrimitives.h"
-#include "Papillon.h"
-#include "Foumis.h"
 #include "Case.h"
 #include "Vaisseau.h"
 #include <stdlib.h>

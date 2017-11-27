@@ -10,16 +10,18 @@
 #define Vaisseau_h
 
 #include "GraphicPrimitives.h"
+#include "Missile.h"
 #include <stdio.h>
 
 class Vaisseau{
     
     private :
     
-    float x, y;
-    float posX1, posY1, posX2, posY2, posX3, posY3;
+    float x, y; //Coordonnées du milieu du vaisseau
     float frequence, vitesse, puissance; //longueur des missiles varie en fonction de la puissance
-    float r,b,g;
+    const float r = 0.4f ,b = 0.2f ,g = 0.0f;
+    
+    Missile *missiles;
     
     public :
     
@@ -42,6 +44,10 @@ class Vaisseau{
     float getFrequence();
     float getVitesse();
     float getPuissance();
+    
+    /* Utile pour dessiner les vaisseaux */
+    const float getVectorX();
+    const float getVectorY();
     
     void setX(const float a);
     void setY(const float a);

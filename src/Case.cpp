@@ -10,7 +10,7 @@
 #include "Engine.h"
 #include <iostream>
 
-float Case::nb_lignes = 1;
+float Case::nb_lignes = 5;
 
 float Case::getCaseX(const int x){
     

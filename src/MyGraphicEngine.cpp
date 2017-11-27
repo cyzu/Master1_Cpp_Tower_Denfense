@@ -51,8 +51,8 @@ void MyGraphicEngine::Draw(){
     const float horizontal_scale  = 2.0/Case::nb_lignes;
     for (float i = -1; i < 1; i += 0.2) { //vertical
         for (float j = -1; j < 1; j += horizontal_scale) { //horizontal
-            GraphicPrimitives::drawLine2D(i, 1, i, -1, 1.0f, 1.0f, 1.0f);
-            GraphicPrimitives::drawLine2D(-1, j, 1, j, 1.0f, 1.0f, 1.0f);
+            GraphicPrimitives::drawLine2D(i, 1, i, -1, 0.25f, 0.25f, 0.25f);
+            GraphicPrimitives::drawLine2D(-1, j, 1, j, 0.25f, 0.25f, 0.25f);
         }
     }
     
