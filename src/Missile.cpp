@@ -7,18 +7,22 @@
 //
 
 #include "Missile.h"
+#include <iostream>
+#include <unistd.h>
 
-Missile::Missile(const float x_, const float y_, const float v){
+Missile::Missile(const float x_, const float y_, const float v, const float vposX_){
     x = x_;
     y = y_;
-    vector = v;
+    vector = v * 0.03;
+    vposX = vposX_/100;
     missileSuiv = NULL;
 }
 
-Missile::Missile(const float x_, const float y_, const float v, Missile *m){
+Missile::Missile(Missile *m, const float x_, const float y_, const float v, const float vposX_){
     x = x_;
     y = y_;
-    vector = v;
+    vector = v * 0.03;
+    vposX = vposX_;
     missileSuiv = m;
 }
 
@@ -47,6 +51,12 @@ float Missile::getVector(){
     return vector;
 }
 
+float Missile::getVposX(){
+    return vposX;
+}
+
+Missile* Missile::getMissileSuiv(){ return missileSuiv; }
+
 void Missile::setX(const float x_){
     x = x_;
 }
@@ -54,4 +64,22 @@ void Missile::setX(const float x_){
 void Missile::setY(const float y_){
     y = y_;
 }
+
+void Missile::setMissileSuiv(Missile *m){
+    missileSuiv = m;
+}
+
+void Missile::draw(){
+    Missile *missileCourant = this;
+    
+    while (missileCourant != NULL){
+        GraphicPrimitives::drawLine2D(x, y, x+vector, y, r, g, b);
+        missileCourant = missileCourant->missileSuiv;
+    }
+}
+
+void Missile::tick(){
+    setX(getX()+getVposX());
+}
+
 

@@ -16,11 +16,6 @@ class Case{
     static float nb_lignes;
     static float getCaseX(const int x);
     static float getCaseY(const int y);
-    
 };
 
 #endif /* Case_h */
-
-/* get windows height & width == glutGet(GLUT_WINDOW_HEIGHT)
- glutGet(GLUT_WINDOW_WIDTH)
- */

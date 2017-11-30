@@ -1,0 +1,20 @@
+● class Case : tout est en static pour qu'on est le nombre de lignes depuis n'importe quelle classe.
+             Permet de calculer les vecteurs pour dessiner les vaisseaux en fonction de la  taille de la case.
+
+● class Vaisseau : x, r représente les coordonnées du milieu du vaisseau.
+                   (pour dessiner, on calcule par rapport à ce point et a la taille de la case)
+              
+                point 2 (x-vectorX, y+vectorY)
+                 |\
+                 | \ point 1 (x+vectorX, y)
+                 | /
+                 |/
+                point 3 (x-vectorX, y-vectorY)
+
+● frequence des missiles [1, 10]: Distance entre 2 missiles == 1/frequence, on ajoute une nouvelle missiles.
+● vitesse des missiles [1, 5]: plus la vitesse est grande, plus le vecteur de déplacement des missiles est grande aussi
+                                (dans Missile::tick())
+                                VposX = vitesse/100
+● puissance des missiles [1,10]: la longueur des missiles varie en fonction de sa puissance.
+                                Plus la puissance est grande, plus le missile est long.
+                                Vecteur longueur = puissance * 0.03
