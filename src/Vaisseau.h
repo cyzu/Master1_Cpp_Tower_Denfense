@@ -12,6 +12,7 @@
 #include "GraphicPrimitives.h"
 #include "Missile.h"
 #include <stdio.h>
+#include <deque>
 
 class Vaisseau{
     
@@ -21,8 +22,9 @@ class Vaisseau{
     float frequence, vitesse, puissance;
     const float r = 0.4f ,b = 0.2f ,g = 0.0f; //couleur bordeaux
     
-    Missile *missiles;
-    //Missile *creationM = NULL;
+    int countF = 0;
+    
+    std::deque<Missile> missiles;
     
     public :
     
@@ -31,7 +33,7 @@ class Vaisseau{
      */
     
     Vaisseau(const float x, const float y,
-             const float f = 2, const float v = 2, const float p = 1);
+             const float f = 1, const float v = 1, const float p = 3);
     
     Vaisseau(const Vaisseau &v);
     
@@ -44,7 +46,8 @@ class Vaisseau{
     float getFrequence();
     float getVitesse();
     float getPuissance();
-    Missile* getMissiles();
+    int getCountF();
+    std::deque<Missile> getMissiles();
     
     /* Utile pour dessiner les vaisseaux */
     const float getVectorX();
@@ -55,6 +58,7 @@ class Vaisseau{
     void setFrequence(const float f);
     void setVitesse(const float v);
     void setPuissance(const float p);
+    void setCountF(const int i);
     
     
     /*

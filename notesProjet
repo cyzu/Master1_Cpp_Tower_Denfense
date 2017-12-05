@@ -11,10 +11,11 @@
                  |/
                 point 3 (x-vectorX, y-vectorY)
 
-● frequence des missiles [1, 10]: Distance entre 2 missiles == 1/frequence, on ajoute une nouvelle missiles.
+● frequence des missiles [1, 10]: frequence = 1-(0.1*input). Pour tous les frequence * 150 appel de ticks,
+                                    une nouvelle missile est crée.
 ● vitesse des missiles [1, 5]: plus la vitesse est grande, plus le vecteur de déplacement des missiles est grande aussi
                                 (dans Missile::tick())
-                                VposX = vitesse/100
+                                VposX = vitesse/111
 ● puissance des missiles [1,10]: la longueur des missiles varie en fonction de sa puissance.
                                 Plus la puissance est grande, plus le missile est long.
                                 Vecteur longueur = puissance * 0.03
