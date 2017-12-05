@@ -80,6 +80,10 @@ void Missile::draw(){
 
 void Missile::tick(){
     setX(getX()+getVposX());
+    
+    //std::cout<<getX()<<std::endl;
+    
+    //if (getX() > 1) delete this;
 }
 
 

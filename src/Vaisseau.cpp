@@ -59,24 +59,29 @@ void Vaisseau::draw(){
 }
 
 void Vaisseau::tick(){
+    // todo : afficher plusieurs missiles depuis un vaisseau
+    // todo : supprimer les missiles qui sortent de la fenêtre
     
     // si la distance entre x1 du vaisseau et le missile == 1/frequence
-   /* float distance = missiles->getX() - (getX()+getVectorX() + 1/getFrequence());
+    float distance = missiles->getX() - (getX()+getVectorX() + 1/getFrequence());
     distance = fabsf(distance); //valeur absolue
-                                */
-    /*if (distance <= 0.0001){
-        Missile *newM = new Missile(x+getVectorX(), y, puissance, vitesse);
-        newM->setMissileSuiv(missiles);
-        
-        missiles = newM;
-    }*/
     
-    for (Missile* i = missiles; i != NULL; i = i->getMissileSuiv()) {
-        i->tick();
+    if (distance <= 0.0001){
+        Missile *newM = new Missile(getX()+getVectorX(), y, puissance, vitesse);
+        //newM->setMissileSuiv(missiles);
+        //missiles = newM;
+        missiles->setMissileSuiv(newM);
+        newM = NULL;
     }
     
-    //std::cout<<std::endl;
+    /*if (missiles->getX() > 1){
+        missiles = missiles->getMissileSuiv();
+    }*/
     
+    Missile* currentM = missiles;
     
-    
+    while (currentM != NULL){
+        currentM->tick();
+        currentM = currentM->getMissileSuiv();
+    }
 }

@@ -31,7 +31,7 @@ class Vaisseau{
      */
     
     Vaisseau(const float x, const float y,
-             const float f = 2, const float v = 2, const float p = 5);
+             const float f = 2, const float v = 2, const float p = 1);
     
     Vaisseau(const Vaisseau &v);
     
