@@ -14,7 +14,7 @@
 
 class Missile{
     
-    friend class Vaisseau;
+   // friend class Vaisseau;
     
     private :
     
@@ -27,6 +27,7 @@ class Missile{
     public :
     
     Missile(const float x_, const float y_, const float v, const float vposX_ = 1);
+    Missile(const Missile &m);
     ~Missile();
     
     float getX();

@@ -20,8 +20,9 @@ Vaisseau::Vaisseau(const float x_, const float y_, const float f, const float v,
     vitesse = v;
     puissance = p;
     
-    Missile m(x+getVectorX(), y, puissance, vitesse);
+    vie = 50;
     
+    Missile m(x+getVectorX(), y, puissance, vitesse);
     missiles.push_front(m);
 }
 
@@ -33,6 +34,8 @@ Vaisseau::Vaisseau(const Vaisseau &v){
     vitesse = v.vitesse;
     puissance = v.puissance;
     
+    vie = 50;
+    
     //missiles = v.missiles;
 }
 
@@ -42,27 +45,32 @@ float Vaisseau::getFrequence(){ return frequence; }
 float Vaisseau::getVitesse(){ return vitesse; }
 float Vaisseau::getPuissance(){ return puissance; }
 int Vaisseau::getCountF(){ return countF; }
+int Vaisseau::getVie(){ return vie;}
 
 std::deque<Missile> Vaisseau::getMissiles(){ return missiles; }
 
 const float Vaisseau::getVectorX(){ return 0.07;}
-const float Vaisseau::getVectorY(){ return (2/Case::nb_lignes)/3;}
+const float Vaisseau::getVectorY(){ return (2.0/Case::nb_lignes)/3;}
 
 void Vaisseau::setX(const float a){ x = a;}
 void Vaisseau::setY(const float a){ y = a;}
-void Vaisseau::setFrequence(const float f){ frequence = f;}
+void Vaisseau::setFrequence(const float f){ frequence = 1 - (0.1*f);}
 void Vaisseau::setVitesse(const float v){ vitesse = v;}
 void Vaisseau::setPuissance(const float p){ puissance = p;}
 void Vaisseau::setCountF(const int i){ countF = i; }
+void Vaisseau::reduce(const int i){
+    vie = getVie() - i;
+    if (vie < 0) vie = 0;
+}
 
 void Vaisseau::draw(){
     const float vectorX = getVectorX();
     const float vectorY = getVectorY();
     GraphicPrimitives::drawFillTriangle2D(x+vectorX, y, x-vectorX, y+vectorY, x-vectorX, y-vectorY, r, g, b);
+    
     for (auto i = 0; i < missiles.size(); i++) {
         missiles[i].draw();
     }
-    //missiles->draw();
 }
 
 void Vaisseau::tick(){
@@ -70,6 +78,8 @@ void Vaisseau::tick(){
     if (getCountF() >= getFrequence()*150){
         Missile m(getX()+getVectorX(), y, puissance, vitesse);
         missiles.push_back(m);
+        std::cout<<"Test reduce vie vaisseau"<<std::endl;
+        //reduce(getPuissance());
         setCountF(0);
     }
     

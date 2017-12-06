@@ -10,12 +10,31 @@
 #define Case_h
 
 #include <stdio.h>
+//#include "Vaisseau.h"
 
 class Case{
+    private :
+    //bool empty;
+    //float keyX, keyY;
+    //Vaisseau *vaisseau;
+    
     public :
-    static float nb_lignes;
+    static const int nb_lignes;
+    
+    Case();
+    ~Case();
+    
     static float getCaseX(const int x);
     static float getCaseY(const int y);
+    
+   // Vaisseau* getVaisseau();
+    //void setVaisseau(Vaisseau v);
+    //bool isEmpty();
+    
+    /*void setkeyX(const float x);
+    void setkeyY(const float y);
+    float getkeyX();
+    float getkeyY();*/
 };
 
 #endif /* Case_h */

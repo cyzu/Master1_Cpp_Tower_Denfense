@@ -15,6 +15,7 @@
 		2EFFA10A1F8919BF00D3BA04 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFFA1091F8919BF00D3BA04 /* OpenGL.framework */; };
 		2EFFA10C1F8919C600D3BA04 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFFA10B1F8919C600D3BA04 /* GLUT.framework */; };
 		2EFFA1101F891BEE00D3BA04 /* libEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFFA10F1F891BEE00D3BA04 /* libEngine.a */; };
+		7D0A9ED11FD89C210054FB6B /* Jeu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A9ECF1FD89C210054FB6B /* Jeu.cpp */; };
 		7D8BB33D1F8E621400BC2230 /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = 7D8BB33C1F8E621400BC2230 /* makefile */; };
 		7D9597471FCCC2610074A983 /* Missile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D9597451FCCC2610074A983 /* Missile.cpp */; };
 		7DA17A4C1FC6156A0051DC49 /* Vaisseau.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DA17A4A1FC6156A0051DC49 /* Vaisseau.cpp */; };
@@ -54,6 +55,8 @@
 		2EFFA1091F8919BF00D3BA04 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		2EFFA10B1F8919C600D3BA04 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		2EFFA10F1F891BEE00D3BA04 /* libEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEngine.a; path = libMac/libEngine.a; sourceTree = "<group>"; };
+		7D0A9ECF1FD89C210054FB6B /* Jeu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Jeu.cpp; sourceTree = "<group>"; };
+		7D0A9ED01FD89C210054FB6B /* Jeu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jeu.h; sourceTree = "<group>"; };
 		7D8BB33C1F8E621400BC2230 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
 		7D9597451FCCC2610074A983 /* Missile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Missile.cpp; sourceTree = "<group>"; };
 		7D9597461FCCC2610074A983 /* Missile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Missile.h; sourceTree = "<group>"; };
@@ -137,6 +140,8 @@
 				7DA6C7001FC71B9900E87707 /* Case.h */,
 				7D9597451FCCC2610074A983 /* Missile.cpp */,
 				7D9597461FCCC2610074A983 /* Missile.h */,
+				7D0A9ECF1FD89C210054FB6B /* Jeu.cpp */,
+				7D0A9ED01FD89C210054FB6B /* Jeu.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -179,7 +184,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = "Yonathan Bleyfuesz";
+				ORGANIZATIONNAME = "Chloé Bensoussan";
 				TargetAttributes = {
 					2EFFA0DF1F8918B200D3BA04 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -209,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D0A9ED11FD89C210054FB6B /* Jeu.cpp in Sources */,
 				7DA17A4C1FC6156A0051DC49 /* Vaisseau.cpp in Sources */,
 				2EFFA1061F89199500D3BA04 /* MyGraphicEngine.cpp in Sources */,
 				2EFFA1031F89199500D3BA04 /* main.cpp in Sources */,

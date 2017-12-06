@@ -21,6 +21,7 @@ class Vaisseau{
     float x, y; //Coordonnées du milieu du vaisseau
     float frequence, vitesse, puissance;
     const float r = 0.4f ,b = 0.2f ,g = 0.0f; //couleur bordeaux
+    int vie;
     
     int countF = 0;
     
@@ -33,7 +34,7 @@ class Vaisseau{
      */
     
     Vaisseau(const float x, const float y,
-             const float f = 1, const float v = 1, const float p = 3);
+             const float f = 1, const float v = 7, const float p = 15);
     
     Vaisseau(const Vaisseau &v);
     
@@ -47,6 +48,7 @@ class Vaisseau{
     float getVitesse();
     float getPuissance();
     int getCountF();
+    int getVie();
     std::deque<Missile> getMissiles();
     
     /* Utile pour dessiner les vaisseaux */
@@ -59,6 +61,7 @@ class Vaisseau{
     void setVitesse(const float v);
     void setPuissance(const float p);
     void setCountF(const int i);
+    void reduce(const int i);
     
     
     /*

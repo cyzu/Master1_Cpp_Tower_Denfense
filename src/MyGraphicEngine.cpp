@@ -6,7 +6,6 @@
 using namespace std;
 
 void MyGraphicEngine::Draw(){
-    
     GraphicPrimitives::drawLine2D(0.5, 0.5, 0.9, 0.9, 1.0f, 0.0f, 0.0f);
     GraphicPrimitives::drawText2D(str,-0.9f,0.9f,1.0f,0.3f, 0.8f);
     

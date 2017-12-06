@@ -10,7 +10,14 @@
 #include "Engine.h"
 #include <iostream>
 
-float Case::nb_lignes = 5;
+const int Case::nb_lignes = 5;
+
+Case::Case(){
+    /*keyX = -1;
+    keyY = -1;
+    //empty = true;*/
+    //vaisseau = NULL;
+}
 
 float Case::getCaseX(const int x){
     
@@ -31,8 +38,19 @@ float Case::getCaseY(const int y){
     
     float i = -1;
     while(i < 1 && posY > i){
-        i += 2/nb_lignes;
+        i += 2.0/nb_lignes;
     }
-    posY = i - 2/(2*nb_lignes);
+    posY = i - 2.0/(2*nb_lignes);
     return -posY;
 }
+
+//Vaisseau* getVaisseau(){ return vaisseau;}
+
+
+/*void Case::setkeyX(const float x){ keyX = x;}
+void Case::setkeyY(const float y){ keyY = y;}
+
+float Case::getkeyX(){ return keyX;}
+float Case::getkeyY(){ return keyY;}*/
+
+//bool Case::isEmpty(){ return empty; }

@@ -14,14 +14,15 @@ Missile::Missile(const float x_, const float y_, const float v, const float vpos
     x = x_;
     y = y_;
     vector = v * 0.03;
-    vposX = vposX_/111;
+    vposX = vposX_/5;
 }
 
-/*Missile::Missile(const Missile &m){
+Missile::Missile(const Missile &m){
     x = m.x;
     y = m.y;
     vector = m.vector;
-}*/
+    vposX = m.vposX/111;
+}
 
 Missile::~Missile(){
     
@@ -53,7 +54,6 @@ void Missile::setY(const float y_){
 
 void Missile::draw(){
     GraphicPrimitives::drawLine2D(x, y, x+vector, y, r, g, b);
-    
 }
 
 void Missile::tick(){
