@@ -16,7 +16,7 @@ Vaisseau::Vaisseau(const float r_, const float g_, const float b_, const float x
     x = x_;
     y = y_;
     
-    frequence = 1 - (0.1*f);
+    frequence = 1 - (0.1 * f);
     vitesse = v;
     puissance = p;
     
@@ -93,14 +93,19 @@ void Vaisseau::draw(){
 
 void Vaisseau::tick(){
 
+    //std::cout<<"count frequence "<<getCountF()<<std::endl;
+     //std::cout<<"vaisseau frequence "<<getFrequence()<<std::endl;
+    
+    // Gestion de temps d'intervalle pour créer une nouvelle missile
     if (getCountF() >= getFrequence()*150){
         Missile m(getX()+getVectorX(), y, puissance, vitesse);
         missiles.push_back(m);
-        std::cout<<"Test reduce vie vaisseau"<<std::endl;
+        //std::cout<<"Test reduce vie vaisseau"<<std::endl;
         //reduce(getPuissance());
         setCountF(0);
     }
     
+    // Animer les missiles
     for (auto i = 0; i < missiles.size(); i++) {
         if (missiles[i].getX() >= 1) missiles.pop_front();
         missiles[i].tick();

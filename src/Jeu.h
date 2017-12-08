@@ -12,6 +12,7 @@
 
 #include "Engine.h"
 #include "Vaisseau.h"
+#include "Asteroide.h"
 //#include <stdio.h>
 
 class Jeu{
@@ -23,6 +24,7 @@ class Jeu{
     public :
     static std::vector<Vaisseau> typesVaisseaux;
     static Vaisseau choix;
+    static Asteroide asteroide;
     
     static float getCaseX(const int x);
     static float getCaseY(const int y);

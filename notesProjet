@@ -29,4 +29,19 @@
                     puis appuyer sur 'Entrée' pour sélectionner le vaisseau.
     (Une fois un vaisseau placé sur une case, on ne peut plus y toucher, on ne peut pas poser par dessus, si on change de case on remet le compteur à zéro)
 
+● Asstéroïdes : (x, y) qui correspond au centre de l'astéroides
+
+
+                        7 (x, y+vector+(vector/2))
+
+           6 (x-vector, y+vector)   x--x--x   (x+vector, y+vector) 0
+                                   /       \
+     5 (x-vector-(vector/2), y)   x    X    x   (x+vector+(vector/2) , y) 1
+                                   \       /
+           4 (x-vector, y-vector)   x--x--x   (x+vector, y-vector) 2
+
+                                (x, y-vector-(vector/2)) 3
+
+dessiner polygone : drawFillPolygone2D puis remplir le centre avec drawFillRect2D (x[4], y[4], vector*2, vector*2)
+
 METTRE COMMENTAIRE

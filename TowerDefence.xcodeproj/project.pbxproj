@@ -19,6 +19,7 @@
 		7D9597471FCCC2610074A983 /* Missile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D9597451FCCC2610074A983 /* Missile.cpp */; };
 		7DA17A4C1FC6156A0051DC49 /* Vaisseau.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DA17A4A1FC6156A0051DC49 /* Vaisseau.cpp */; };
 		7DA6C7011FC71B9900E87707 /* Jeu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6C6FF1FC71B9900E87707 /* Jeu.cpp */; };
+		7DE7A7B71FDAF3FB00DB6D78 /* Asteroide.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DE7A7B51FDAF3FB00DB6D78 /* Asteroide.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,6 +63,8 @@
 		7DA2BCB41FCDD4B9007F6225 /* notesProjet */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notesProjet; sourceTree = "<group>"; };
 		7DA6C6FF1FC71B9900E87707 /* Jeu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Jeu.cpp; sourceTree = "<group>"; };
 		7DA6C7001FC71B9900E87707 /* Jeu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jeu.h; sourceTree = "<group>"; };
+		7DE7A7B51FDAF3FB00DB6D78 /* Asteroide.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Asteroide.cpp; sourceTree = "<group>"; };
+		7DE7A7B61FDAF3FB00DB6D78 /* Asteroide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asteroide.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,8 @@
 				7DA6C7001FC71B9900E87707 /* Jeu.h */,
 				7D9597451FCCC2610074A983 /* Missile.cpp */,
 				7D9597461FCCC2610074A983 /* Missile.h */,
+				7DE7A7B51FDAF3FB00DB6D78 /* Asteroide.cpp */,
+				7DE7A7B61FDAF3FB00DB6D78 /* Asteroide.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -218,6 +223,7 @@
 				2EFFA1051F89199500D3BA04 /* MyGameEngine.cpp in Sources */,
 				7D8BB33D1F8E621400BC2230 /* makefile in Sources */,
 				7DA6C7011FC71B9900E87707 /* Jeu.cpp in Sources */,
+				7DE7A7B71FDAF3FB00DB6D78 /* Asteroide.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

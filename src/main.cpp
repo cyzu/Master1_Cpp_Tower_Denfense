@@ -23,11 +23,11 @@ int main(int argc, char * argv[])
     e.setGameEngine(gme);
     e.setControlEngine(ce);
     
-    ////r = 0.4f ,b = 0.2f ,g = 0.0f
-    
-    Vaisseau v(0.4f, 0.0f, 0.2f, 0, 0, 1, 10, 3);
+    // bordeaux
+    Vaisseau v(0.4f, 0.0f, 0.2f, 0, 0, 2, 10, 3);
     Jeu::ajouterVaisseau(v);
     
+    //vert
     v.setRed(0.2f);
     v.setGreen(0.4f);
     v.setBlue(0.0f);
@@ -36,6 +36,7 @@ int main(int argc, char * argv[])
     v.setPuissance(5);
     Jeu::ajouterVaisseau(v);
     
+    //marron
     v.setRed(0.4f);
     v.setGreen(0.2f);
     v.setBlue(0.0f);
@@ -44,6 +45,7 @@ int main(int argc, char * argv[])
     v.setPuissance(1);
     Jeu:: ajouterVaisseau(v);
     
+    //bleu
     v.setRed(0.0f);
     v.setGreen(0.2f);
     v.setBlue(0.4f);

@@ -13,6 +13,7 @@
 int Jeu::vie = 100;
 std::vector<Vaisseau> Jeu::typesVaisseaux;
 Vaisseau Jeu::choix(0.0f, 0.0f, 0.0f, -10, -10);
+Asteroide Jeu::asteroide(0, 0, 0.03);
 
 float Jeu::getCaseX(const int x){
     float window = glutGet(GLUT_WINDOW_WIDTH)/2;
