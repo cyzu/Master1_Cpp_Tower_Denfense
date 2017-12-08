@@ -1,7 +1,7 @@
 #pragma once
 #include "Engine.h"
 #include "GraphicPrimitives.h"
-#include "Case.h"
+//#include "Case.h"
 #include "Vaisseau.h"
 #include <stdlib.h>
 

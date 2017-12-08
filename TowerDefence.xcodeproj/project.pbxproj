@@ -15,11 +15,10 @@
 		2EFFA10A1F8919BF00D3BA04 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFFA1091F8919BF00D3BA04 /* OpenGL.framework */; };
 		2EFFA10C1F8919C600D3BA04 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFFA10B1F8919C600D3BA04 /* GLUT.framework */; };
 		2EFFA1101F891BEE00D3BA04 /* libEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFFA10F1F891BEE00D3BA04 /* libEngine.a */; };
-		7D0A9ED11FD89C210054FB6B /* Jeu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A9ECF1FD89C210054FB6B /* Jeu.cpp */; };
 		7D8BB33D1F8E621400BC2230 /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = 7D8BB33C1F8E621400BC2230 /* makefile */; };
 		7D9597471FCCC2610074A983 /* Missile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D9597451FCCC2610074A983 /* Missile.cpp */; };
 		7DA17A4C1FC6156A0051DC49 /* Vaisseau.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DA17A4A1FC6156A0051DC49 /* Vaisseau.cpp */; };
-		7DA6C7011FC71B9900E87707 /* Case.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6C6FF1FC71B9900E87707 /* Case.cpp */; };
+		7DA6C7011FC71B9900E87707 /* Jeu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DA6C6FF1FC71B9900E87707 /* Jeu.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,7 +34,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2EFFA0E01F8918B200D3BA04 /* generical_libGraphProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = generical_libGraphProject; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EFFA0E01F8918B200D3BA04 /* TowerDefence */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TowerDefence; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EFFA0EB1F89199500D3BA04 /* ControlEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlEngine.h; sourceTree = "<group>"; };
 		2EFFA0EC1F89199500D3BA04 /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
 		2EFFA0ED1F89199500D3BA04 /* GameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameEngine.h; sourceTree = "<group>"; };
@@ -55,16 +54,14 @@
 		2EFFA1091F8919BF00D3BA04 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		2EFFA10B1F8919C600D3BA04 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		2EFFA10F1F891BEE00D3BA04 /* libEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEngine.a; path = libMac/libEngine.a; sourceTree = "<group>"; };
-		7D0A9ECF1FD89C210054FB6B /* Jeu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Jeu.cpp; sourceTree = "<group>"; };
-		7D0A9ED01FD89C210054FB6B /* Jeu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jeu.h; sourceTree = "<group>"; };
 		7D8BB33C1F8E621400BC2230 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
 		7D9597451FCCC2610074A983 /* Missile.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Missile.cpp; sourceTree = "<group>"; };
 		7D9597461FCCC2610074A983 /* Missile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Missile.h; sourceTree = "<group>"; };
 		7DA17A4A1FC6156A0051DC49 /* Vaisseau.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Vaisseau.cpp; sourceTree = "<group>"; };
 		7DA17A4B1FC6156A0051DC49 /* Vaisseau.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vaisseau.h; sourceTree = "<group>"; };
 		7DA2BCB41FCDD4B9007F6225 /* notesProjet */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notesProjet; sourceTree = "<group>"; };
-		7DA6C6FF1FC71B9900E87707 /* Case.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Case.cpp; sourceTree = "<group>"; };
-		7DA6C7001FC71B9900E87707 /* Case.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Case.h; sourceTree = "<group>"; };
+		7DA6C6FF1FC71B9900E87707 /* Jeu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Jeu.cpp; sourceTree = "<group>"; };
+		7DA6C7001FC71B9900E87707 /* Jeu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Jeu.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +92,7 @@
 		2EFFA0E11F8918B200D3BA04 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2EFFA0E01F8918B200D3BA04 /* generical_libGraphProject */,
+				2EFFA0E01F8918B200D3BA04 /* TowerDefence */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -136,12 +133,10 @@
 				2EFFA0FE1F89199500D3BA04 /* MyGraphicEngine.h */,
 				7DA17A4A1FC6156A0051DC49 /* Vaisseau.cpp */,
 				7DA17A4B1FC6156A0051DC49 /* Vaisseau.h */,
-				7DA6C6FF1FC71B9900E87707 /* Case.cpp */,
-				7DA6C7001FC71B9900E87707 /* Case.h */,
+				7DA6C6FF1FC71B9900E87707 /* Jeu.cpp */,
+				7DA6C7001FC71B9900E87707 /* Jeu.h */,
 				7D9597451FCCC2610074A983 /* Missile.cpp */,
 				7D9597461FCCC2610074A983 /* Missile.h */,
-				7D0A9ECF1FD89C210054FB6B /* Jeu.cpp */,
-				7D0A9ED01FD89C210054FB6B /* Jeu.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -160,9 +155,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2EFFA0DF1F8918B200D3BA04 /* generical_libGraphProject */ = {
+		2EFFA0DF1F8918B200D3BA04 /* TowerDefence */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2EFFA0E71F8918B200D3BA04 /* Build configuration list for PBXNativeTarget "generical_libGraphProject" */;
+			buildConfigurationList = 2EFFA0E71F8918B200D3BA04 /* Build configuration list for PBXNativeTarget "TowerDefence" */;
 			buildPhases = (
 				2EFFA0DC1F8918B200D3BA04 /* Sources */,
 				2EFFA0DD1F8918B200D3BA04 /* Frameworks */,
@@ -172,9 +167,9 @@
 			);
 			dependencies = (
 			);
-			name = generical_libGraphProject;
+			name = TowerDefence;
 			productName = generical_libGraphProject;
-			productReference = 2EFFA0E01F8918B200D3BA04 /* generical_libGraphProject */;
+			productReference = 2EFFA0E01F8918B200D3BA04 /* TowerDefence */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -192,7 +187,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2EFFA0DB1F8918B200D3BA04 /* Build configuration list for PBXProject "generical_libGraphProject" */;
+			buildConfigurationList = 2EFFA0DB1F8918B200D3BA04 /* Build configuration list for PBXProject "TowerDefence" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -204,7 +199,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2EFFA0DF1F8918B200D3BA04 /* generical_libGraphProject */,
+				2EFFA0DF1F8918B200D3BA04 /* TowerDefence */,
 			);
 		};
 /* End PBXProject section */
@@ -214,7 +209,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D0A9ED11FD89C210054FB6B /* Jeu.cpp in Sources */,
 				7DA17A4C1FC6156A0051DC49 /* Vaisseau.cpp in Sources */,
 				2EFFA1061F89199500D3BA04 /* MyGraphicEngine.cpp in Sources */,
 				2EFFA1031F89199500D3BA04 /* main.cpp in Sources */,
@@ -223,7 +217,7 @@
 				7D9597471FCCC2610074A983 /* Missile.cpp in Sources */,
 				2EFFA1051F89199500D3BA04 /* MyGameEngine.cpp in Sources */,
 				7D8BB33D1F8E621400BC2230 /* makefile in Sources */,
-				7DA6C7011FC71B9900E87707 /* Case.cpp in Sources */,
+				7DA6C7011FC71B9900E87707 /* Jeu.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +314,7 @@
 		2EFFA0E81F8918B200D3BA04 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_NO_COMMON_BLOCKS = NO;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/include/lib",
@@ -332,6 +327,7 @@
 		2EFFA0E91F8918B200D3BA04 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_NO_COMMON_BLOCKS = NO;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/include/lib",
@@ -344,7 +340,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2EFFA0DB1F8918B200D3BA04 /* Build configuration list for PBXProject "generical_libGraphProject" */ = {
+		2EFFA0DB1F8918B200D3BA04 /* Build configuration list for PBXProject "TowerDefence" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2EFFA0E51F8918B200D3BA04 /* Debug */,
@@ -353,7 +349,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2EFFA0E71F8918B200D3BA04 /* Build configuration list for PBXNativeTarget "generical_libGraphProject" */ = {
+		2EFFA0E71F8918B200D3BA04 /* Build configuration list for PBXNativeTarget "TowerDefence" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2EFFA0E81F8918B200D3BA04 /* Debug */,

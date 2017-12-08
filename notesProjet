@@ -19,5 +19,14 @@
 ● puissance des missiles [1,10]: la longueur des missiles varie en fonction de sa puissance.
                                 Plus la puissance est grande, plus le missile est long.
                                 Vecteur longueur = puissance * 0.03
+● destruction missiles : suppression de missiles lorsque son coordonnée X dépasse 1 (hors de la fenêtre)
+● destruction vaisseau : suppression du vaisseau lorsque la vie a atteint 0
+
 ● vie d'un vaisseau = 50
-● vie du jeu = 100'
+● vie du jeu = 100
+
+● choix Vaisseaux : clique sur la même case pour faire défiler les différents types de vaisseaux,
+                    puis appuyer sur 'Entrée' pour sélectionner le vaisseau.
+    (Une fois un vaisseau placé sur une case, on ne peut plus y toucher, on ne peut pas poser par dessus, si on change de case on remet le compteur à zéro)
+
+METTRE COMMENTAIRE

@@ -1,28 +1,23 @@
 //
 //  Missile.hpp
-//  generical_libGraphProject
+//  TowerDefence project
 //
 //  Created by Chloé BENSOUSSAN on 27/11/2017.
 //  Copyright © 2017 Chloé BENSOUSSAN. All rights reserved.
 //
-
+#pragma once
 #ifndef Missile_h
 #define Missile_h
 
 #include "GraphicPrimitives.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 class Missile{
-    
-   // friend class Vaisseau;
-    
     private :
     
     float x, y, vector; //pour la longeur du missile (puissance)
     float vposX; // vecteur déplacement missiles (vitesse)
     const float r = 0.0f, g = 1.0f, b = 0.0f;
-    
-    //Missile *missileSuiv;
     
     public :
     

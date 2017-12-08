@@ -1,14 +1,14 @@
 //
 //  Missile.cpp
-//  generical_libGraphProject
+//  TowerDefence project
 //
 //  Created by Chloé 雪乃 BENSOUSSAN 下村 on 27/11/2017.
 //  Copyright © 2017 Chloé BENSOUSSAN. All rights reserved.
 //
 
 #include "Missile.h"
-#include <iostream>
-#include <unistd.h>
+//#include <iostream>
+//#include <unistd.h>
 
 Missile::Missile(const float x_, const float y_, const float v, const float vposX_){
     x = x_;

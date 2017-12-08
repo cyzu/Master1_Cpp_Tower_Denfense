@@ -1,17 +1,17 @@
 //
 //  Vaisseau.hpp
-//  generical_libGraphProject
+//  TowerDefence project
 //
 //  Created by Chloé BENSOUSSAN on 22/11/2017.
 //  Copyright © 2017 Chloe Bensoussan. All rights reserved.
 //
-
+#pragma once
 #ifndef Vaisseau_h
 #define Vaisseau_h
 
 #include "GraphicPrimitives.h"
 #include "Missile.h"
-#include <stdio.h>
+//#include <stdio.h>
 #include <deque>
 
 class Vaisseau{
@@ -20,7 +20,7 @@ class Vaisseau{
     
     float x, y; //Coordonnées du milieu du vaisseau
     float frequence, vitesse, puissance;
-    const float r = 0.4f ,b = 0.2f ,g = 0.0f; //couleur bordeaux
+    float red, green, blue;//r = 0.4f ,b = 0.2f ,g = 0.0f; //couleur bordeaux
     int vie;
     
     int countF = 0;
@@ -33,8 +33,8 @@ class Vaisseau{
      Constructeurs / destructeur 
      */
     
-    Vaisseau(const float x, const float y,
-             const float f = 1, const float v = 7, const float p = 15);
+    Vaisseau(const float r_, const float g_, const float b_, const float x, const float y,
+             const float f = 1, const float v = 1, const float p = 1);
     
     Vaisseau(const Vaisseau &v);
     
@@ -44,9 +44,15 @@ class Vaisseau{
     
     float getX();
     float getY();
+    
     float getFrequence();
     float getVitesse();
     float getPuissance();
+    
+    float getRed();
+    float getGreen();
+    float getBlue();
+    
     int getCountF();
     int getVie();
     std::deque<Missile> getMissiles();
@@ -57,9 +63,15 @@ class Vaisseau{
     
     void setX(const float a);
     void setY(const float a);
+    
     void setFrequence(const float f);
     void setVitesse(const float v);
     void setPuissance(const float p);
+    
+    void setRed(const float r);
+    void setGreen(const float g);
+    void setBlue(const float b);
+    
     void setCountF(const int i);
     void reduce(const int i);
     

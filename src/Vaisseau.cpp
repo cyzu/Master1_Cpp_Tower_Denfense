@@ -1,6 +1,6 @@
 //
 //  Vaisseau.cpp
-//  generical_libGraphProject
+//  TowerDefence project
 //
 //  Created by Chloé BENSOUSSAN on 22/11/2017.
 //  Copyright © 2017 Chloé Bensoussan. All rights reserved.
@@ -8,11 +8,11 @@
 
 #include "Vaisseau.h"
 #include "Missile.h"
-#include "Case.h"
+#include "Jeu.h"
 #include <math.h>
 #include <unistd.h>
 
-Vaisseau::Vaisseau(const float x_, const float y_, const float f, const float v, const float p){
+Vaisseau::Vaisseau(const float r_, const float g_, const float b_, const float x_, const float y_, const float f, const float v, const float p){
     x = x_;
     y = y_;
     
@@ -22,6 +22,10 @@ Vaisseau::Vaisseau(const float x_, const float y_, const float f, const float v,
     
     vie = 50;
     
+    red = r_;
+    green = g_;
+    blue = b_;
+    
     Missile m(x+getVectorX(), y, puissance, vitesse);
     missiles.push_front(m);
 }
@@ -30,33 +34,47 @@ Vaisseau::Vaisseau(const Vaisseau &v){
     x = v.x;
     y = v.y;
     
+    red = v.red;
+    green = v.green;
+    blue = v.blue;
+    
     frequence = v.frequence;
     vitesse = v.vitesse;
     puissance = v.puissance;
     
     vie = 50;
-    
-    //missiles = v.missiles;
 }
 
 float Vaisseau::getX(){ return x; }
 float Vaisseau::getY(){ return y; }
+
 float Vaisseau::getFrequence(){ return frequence; }
 float Vaisseau::getVitesse(){ return vitesse; }
 float Vaisseau::getPuissance(){ return puissance; }
+
+float Vaisseau::getRed(){ return red;}
+float Vaisseau::getGreen(){ return green;}
+float Vaisseau::getBlue(){ return blue;}
+
 int Vaisseau::getCountF(){ return countF; }
 int Vaisseau::getVie(){ return vie;}
 
 std::deque<Missile> Vaisseau::getMissiles(){ return missiles; }
 
 const float Vaisseau::getVectorX(){ return 0.07;}
-const float Vaisseau::getVectorY(){ return (2.0/Case::nb_lignes)/3;}
+const float Vaisseau::getVectorY(){ return (2.0/Jeu::getNombreLignes())/3;}
 
 void Vaisseau::setX(const float a){ x = a;}
 void Vaisseau::setY(const float a){ y = a;}
+
 void Vaisseau::setFrequence(const float f){ frequence = 1 - (0.1*f);}
 void Vaisseau::setVitesse(const float v){ vitesse = v;}
 void Vaisseau::setPuissance(const float p){ puissance = p;}
+
+void Vaisseau::setRed(const float r){ red = r;}
+void Vaisseau::setGreen(const float g){ green = g;}
+void Vaisseau::setBlue(const float b){ blue = b;}
+
 void Vaisseau::setCountF(const int i){ countF = i; }
 void Vaisseau::reduce(const int i){
     vie = getVie() - i;
@@ -66,7 +84,7 @@ void Vaisseau::reduce(const int i){
 void Vaisseau::draw(){
     const float vectorX = getVectorX();
     const float vectorY = getVectorY();
-    GraphicPrimitives::drawFillTriangle2D(x+vectorX, y, x-vectorX, y+vectorY, x-vectorX, y-vectorY, r, g, b);
+    GraphicPrimitives::drawFillTriangle2D(x+vectorX, y, x-vectorX, y+vectorY, x-vectorX, y-vectorY, red, green, blue);
     
     for (auto i = 0; i < missiles.size(); i++) {
         missiles[i].draw();

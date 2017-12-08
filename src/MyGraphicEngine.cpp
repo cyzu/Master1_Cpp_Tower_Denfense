@@ -1,9 +1,7 @@
 
 #include "MyGraphicEngine.h"
-#include "Case.h"
+#include "Jeu.h"
 #include <string.h>
-
-using namespace std;
 
 void MyGraphicEngine::Draw(){
     GraphicPrimitives::drawLine2D(0.5, 0.5, 0.9, 0.9, 1.0f, 0.0f, 0.0f);
@@ -12,6 +10,8 @@ void MyGraphicEngine::Draw(){
     for (int i = 0; i < vaisseau->size(); i++) {
         (*vaisseau)[i]->draw();
     }
+    
+    Jeu::choix.draw();
 
     /*
      FAIRE PIVOTER LE SEGMENT 
@@ -30,7 +30,7 @@ void MyGraphicEngine::Draw(){
      */
     
     /* Quadrillage gris */
-    const float horizontal_scale  = 2.0/Case::nb_lignes;
+    const float horizontal_scale  = 2.0/Jeu::getNombreLignes();
     for (float i = -1; i < 1; i += 0.2) { //vertical
         for (float j = -1; j < 1; j += horizontal_scale) { //horizontal
             GraphicPrimitives::drawLine2D(i, 1, i, -1, 0.25f, 0.25f, 0.25f);
