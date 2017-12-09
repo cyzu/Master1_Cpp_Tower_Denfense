@@ -27,6 +27,8 @@ class Vaisseau{
     
     std::deque<Missile> missiles;
     
+    //static int totalVaisseaux;
+    
     public :
     
     /* 
@@ -56,6 +58,8 @@ class Vaisseau{
     int getCountF();
     int getVie();
     std::deque<Missile> getMissiles();
+    
+    //static int getTotalVaisseaux();
     
     /* Utile pour dessiner les vaisseaux */
     const float getVectorX();

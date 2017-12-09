@@ -1,6 +1,7 @@
 #include "MyControlEngine.h"
 #include "Jeu.h"
 #include "Vaisseau.h"
+#include "Vague.h"
 
 void MyControlEngine::MouseCallback(int button, int state, int x, int y){
     
@@ -50,23 +51,41 @@ void MyControlEngine::MouseCallback(int button, int state, int x, int y){
 }
 
 void MyControlEngine::KeyboardCallback(unsigned char key, int x, int y){
-    
-    if (key == '\r' and adding == true){
-        int i = count % Jeu::typesVaisseaux.size();
+    if (key == '\r'){
+        std::cout<<"Keyboard Callback : 'entrée'"<<key;
+       if (adding == true){
+           std::cout<<" -- création vaisseau"<<key<<std::endl;
+           int i = count % Jeu::typesVaisseaux.size();
         
-        float x_ = Jeu::getCaseX(x);
-        float y_ = Jeu::getCaseY(y);
+           float x_ = Jeu::getCaseX(x);
+           float y_ = Jeu::getCaseY(y);
 
-        std::cout<<"boutton 'Entrée' appuyé"<<std::endl;
-        vaisseau->push_back(new Vaisseau (Jeu::typesVaisseaux[i].getRed(),
+           vaisseau->push_back(new Vaisseau (Jeu::typesVaisseaux[i].getRed(),
                                           Jeu::typesVaisseaux[i].getGreen(),
                                           Jeu::typesVaisseaux[i].getBlue(),
                                           x_, y_,
                                           Jeu::typesVaisseaux[i].getFrequence(),
                                           Jeu::typesVaisseaux[i].getVitesse(),
                                           Jeu::typesVaisseaux[i].getPuissance()));
-        annuler();
+           annuler();
+           Jeu::addTotalVaisseaux();
+       }
+       else {
+           std::cout<<" -- autre"<<key<<std::endl;
+           if (Vague::asteroides.size() == 0){
+               Jeu::vague.nouvelleVague(1.1, 0, 0.04, Jeu::vague.getNombre()+1, Jeu::vague.getVitesse()+0.0001, Jeu::vague.getIntervalle()-0.008);
+           
+               std::cout<<"Nombre de vague : "<<Vague::getTotalVagues()<<std::endl;
+               std::cout<<"mes vie : "<<Jeu::getVie()<<std::endl;
+           }
+       }
     }
+    
+    
+    /*if (key == '\r' and adding == false){
+        std::cout<<"boutton 'Entrée' appuyé"<<std::endl;
+        Jeu::vague.nouvelleVague(1.1, 0, 0.04, 4, 0.03, 0.2);
+    }*/
 }
 
 void MyControlEngine::annuler(){

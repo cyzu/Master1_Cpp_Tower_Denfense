@@ -12,8 +12,9 @@
 Asteroide::Asteroide(const float x_, const float y_, const float v){
     centreX = x_;
     centreY = y_;
-    
     vector = v;
+    
+    vie = 5;//15;
     
     initVectorsX();
     initVectorsY();
@@ -41,6 +42,15 @@ void Asteroide::initVectorsY(){
     y.push_back(getCentreY());
     y.push_back(getCentreY()+getVector());
     y.push_back(getCentreY()+getVector()+(getVector()/2));
+}
+
+void Asteroide::reduireVie(const int v){
+    vie -= v;
+    if (vie > 0) vie = 0;
+}
+
+int Asteroide::getVie(){
+    return vie;
 }
 
 std::vector<float> Asteroide::getVectorsX(){
@@ -84,7 +94,7 @@ void Asteroide::draw(){
     GraphicPrimitives::drawFillRect2D(x[4], y[4], getVector()*2, getVector()*2, 0.5f, 0.5f, 0.3f);
 }
 
-void Asteroide::tick(){
-    setCentreX(getCentreX() - 0.001);
+void Asteroide::tick(const float v){
+    setCentreX(getCentreX() - v);//0.001
 }
 

@@ -12,6 +12,8 @@
 #include <math.h>
 #include <unistd.h>
 
+//int Vaisseau::totalVaisseaux = 0;
+
 Vaisseau::Vaisseau(const float r_, const float g_, const float b_, const float x_, const float y_, const float f, const float v, const float p){
     x = x_;
     y = y_;
@@ -28,6 +30,8 @@ Vaisseau::Vaisseau(const float r_, const float g_, const float b_, const float x
     
     Missile m(x+getVectorX(), y, puissance, vitesse);
     missiles.push_front(m);
+    
+    //totalVaisseaux++;
 }
 
 Vaisseau::Vaisseau(const Vaisseau &v){
@@ -60,6 +64,8 @@ int Vaisseau::getCountF(){ return countF; }
 int Vaisseau::getVie(){ return vie;}
 
 std::deque<Missile> Vaisseau::getMissiles(){ return missiles; }
+
+//int Vaisseau::getTotalVaisseaux(){ return totalVaisseaux; }
 
 const float Vaisseau::getVectorX(){ return 0.07;}
 const float Vaisseau::getVectorY(){ return (2.0/Jeu::getNombreLignes())/3;}

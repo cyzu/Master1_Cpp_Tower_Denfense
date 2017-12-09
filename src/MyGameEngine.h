@@ -5,9 +5,11 @@
 
 class MyGameEngine:public GameEngine {
     std::vector<Vaisseau * > *vaisseau;
+   // Engine *engine;
     
     public:
-    MyGameEngine(std::vector<Vaisseau * > *vaisseau_):vaisseau(vaisseau_){}
+    MyGameEngine(std::vector<Vaisseau * > *vaisseau_):
+        vaisseau(vaisseau_){}
     
     virtual void idle();
     

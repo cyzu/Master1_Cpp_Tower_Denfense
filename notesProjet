@@ -21,9 +21,11 @@
                                 Vecteur longueur = puissance * 0.03
 ● destruction missiles : suppression de missiles lorsque son coordonnée X dépasse 1 (hors de la fenêtre)
 ● destruction vaisseau : suppression du vaisseau lorsque la vie a atteint 0
+● Les missiles des autres vaisseaux ne détruisent pas le vaisseau
 
 ● vie d'un vaisseau = 50
 ● vie du jeu = 100
+● vie d'un astéroide = 15 A definir
 
 ● choix Vaisseaux : clique sur la même case pour faire défiler les différents types de vaisseaux,
                     puis appuyer sur 'Entrée' pour sélectionner le vaisseau.
@@ -43,5 +45,11 @@
                                 (x, y-vector-(vector/2)) 3
 
 dessiner polygone : drawFillPolygone2D puis remplir le centre avec drawFillRect2D (x[4], y[4], vector*2, vector*2)
+
+
+● le nombre et la vitesse des astéroides entre chaque vague, l'intervalle entre astéroides diminue.
+
+● Lancer une vague d'astéroides en faisant 'Entrée'
+
 
 METTRE COMMENTAIRE

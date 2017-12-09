@@ -23,36 +23,12 @@ int main(int argc, char * argv[])
     e.setGameEngine(gme);
     e.setControlEngine(ce);
     
-    // bordeaux
-    Vaisseau v(0.4f, 0.0f, 0.2f, 0, 0, 2, 10, 3);
-    Jeu::ajouterVaisseau(v);
+    Jeu::ajouterVaisseau(Vaisseau(0.4f, 0.0f, 0.2f, 0, 0, 2, 10, 3));// Bordeaux
+    Jeu::ajouterVaisseau(Vaisseau(0.2f, 0.4f, 0.0f, 0, 0, 5, 6, 5)); // Vert
+    Jeu::ajouterVaisseau(Vaisseau(0.4f, 0.2f, 0.0f, 0, 0, 10, 3, 1));// Marron
+    Jeu::ajouterVaisseau(Vaisseau(0.0f, 0.2f, 0.4f, 0, 0, 1, 7, 15));// Bleu
     
-    //vert
-    v.setRed(0.2f);
-    v.setGreen(0.4f);
-    v.setBlue(0.0f);
-    v.setFrequence(5);
-    v.setVitesse(6);
-    v.setPuissance(5);
-    Jeu::ajouterVaisseau(v);
-    
-    //marron
-    v.setRed(0.4f);
-    v.setGreen(0.2f);
-    v.setBlue(0.0f);
-    v.setFrequence(10);
-    v.setVitesse(10);
-    v.setPuissance(1);
-    Jeu:: ajouterVaisseau(v);
-    
-    //bleu
-    v.setRed(0.0f);
-    v.setGreen(0.2f);
-    v.setBlue(0.4f);
-    v.setFrequence(1);
-    v.setVitesse(7);
-    v.setPuissance(15);
-    Jeu::ajouterVaisseau(v);
+    //Jeu::ajouterAsteroides(8, 0.2);
     
     e.start();
     

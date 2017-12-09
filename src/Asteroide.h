@@ -17,6 +17,7 @@ class Asteroide{
     private :
     float centreX, centreY;
     float vector;
+    int vie;
     
     std::vector<float> x;
     std::vector<float> y;
@@ -31,6 +32,9 @@ class Asteroide{
     void initVectorsX();
     void initVectorsY();
     
+    void reduireVie(const int v);
+    int getVie();
+    
     std::vector<float> getVectorsX();
     std::vector<float> getVectorsY();
     
@@ -43,7 +47,7 @@ class Asteroide{
     float getVector();
     
     void draw();
-    void tick();
+    void tick(const float v);
 };
 
 #endif /* Asteroi_des_hpp */
