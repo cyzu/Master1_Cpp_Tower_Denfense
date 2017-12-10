@@ -19,8 +19,7 @@ class Vague{
     float vitesse;
     float intervalle;
     
-    static int totalVagues; //nombre de vague créée
-    //static bool init;
+    static int totalVagues; //nombre de vague terminée sans mourir
     
     public :
     static std::deque<Asteroide> asteroides;

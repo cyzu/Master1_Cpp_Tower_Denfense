@@ -14,10 +14,14 @@ Asteroide::Asteroide(const float x_, const float y_, const float v){
     centreY = y_;
     vector = v;
     
-    vie = 5;//15;
+    vie = 5;
     
     initVectorsX();
     initVectorsY();
+    
+    red = 0.5f;
+    green = 0.5f;
+    blue = 0.3f;
 }
 
 void Asteroide::initVectorsX(){
@@ -46,20 +50,13 @@ void Asteroide::initVectorsY(){
 
 void Asteroide::reduireVie(const int v){
     vie -= v;
-    if (vie > 0) vie = 0;
+    if (vie <= 0) vie = 0;
 }
 
-int Asteroide::getVie(){
-    return vie;
-}
+int Asteroide::getVie(){ return vie; }
 
-std::vector<float> Asteroide::getVectorsX(){
-    return x;
-}
-
-std::vector<float> Asteroide::getVectorsY(){
-    return y;
-}
+std::vector<float> Asteroide::getVectorsX(){ return x; }
+std::vector<float> Asteroide::getVectorsY(){ return y; }
 
 void Asteroide::setCentreX(const float x_){
     centreX = x_;
@@ -77,24 +74,24 @@ void Asteroide::setVector(const float v){
     initVectorsY();
 }
 
-float Asteroide::getCentreX(){
-    return centreX;
-}
+float Asteroide::getCentreX(){ return centreX; }
+float Asteroide::getCentreY(){ return centreY; }
+float Asteroide::getVector(){ return vector; }
 
-float Asteroide::getCentreY(){
-    return centreY;
-}
+void Asteroide::setRed(const float r) { red = r; }
+void Asteroide::setGreen(const float g){ green = g; }
+void Asteroide::setBlue(const float b){ blue = b; }
 
-float Asteroide::getVector(){
-    return vector;
-}
+float Asteroide::getRed(){ return red; }
+float Asteroide::getGreen(){ return green; }
+float Asteroide::getBlue(){ return blue; }
 
 void Asteroide::draw(){
-    GraphicPrimitives::drawFillPolygone2D(x, y, 0.5f, 0.5f, 0.3f);
-    GraphicPrimitives::drawFillRect2D(x[4], y[4], getVector()*2, getVector()*2, 0.5f, 0.5f, 0.3f);
+    GraphicPrimitives::drawFillPolygone2D(x, y, red, green, blue);
+    GraphicPrimitives::drawFillRect2D(x[4], y[4], getVector()*2, getVector()*2, red, green, blue);
 }
 
 void Asteroide::tick(const float v){
-    setCentreX(getCentreX() - v);//0.001
+    setCentreX(getCentreX() - v);
 }
 

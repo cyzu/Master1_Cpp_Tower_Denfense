@@ -1,5 +1,8 @@
-● class Case : tout est en static pour qu'on est le nombre de lignes depuis n'importe quelle classe.
+UN MISSILE
+
+● class Jeu : tout est en static pour qu'on est le nombre de lignes depuis n'importe quelle classe.
              Permet de calculer les vecteurs pour dessiner les vaisseaux en fonction de la  taille de la case.
+                Possède les éléments statics du jeu
 
 ● class Vaisseau : x, r représente les coordonnées du milieu du vaisseau.
                    (pour dessiner, on calcule par rapport à ce point et a la taille de la case)
@@ -12,7 +15,7 @@
                 point 3 (x-vectorX, y-vectorY)
 
 ● frequence des missiles [1, 10]: frequence = 1-(0.1*input). Pour tous les frequence * 150 appels de ticks,
-                                    une nouvelle missile est crée.
+                                    un nouvel missile est cré.
 ● vitesse des missiles [1, 5]: plus la vitesse est grande, plus le vecteur de déplacement des missiles est grande aussi
                                 (dans Missile::tick())
                                 VposX = vitesse/5
@@ -23,9 +26,9 @@
 ● destruction vaisseau : suppression du vaisseau lorsque la vie a atteint 0
 ● Les missiles des autres vaisseaux ne détruisent pas le vaisseau
 
-● vie d'un vaisseau = 50
-● vie du jeu = 100
-● vie d'un astéroide = 15 A definir
+● vie d'un vaisseau = 15
+● vie du jeu = 50
+● vie d'un astéroide = 5
 
 ● choix Vaisseaux : clique sur la même case pour faire défiler les différents types de vaisseaux,
                     puis appuyer sur 'Entrée' pour sélectionner le vaisseau.
@@ -44,12 +47,19 @@
 
                                 (x, y-vector-(vector/2)) 3
 
+
 dessiner polygone : drawFillPolygone2D puis remplir le centre avec drawFillRect2D (x[4], y[4], vector*2, vector*2)
 
 
-● le nombre et la vitesse des astéroides entre chaque vague, l'intervalle entre astéroides diminue.
+● le nombre et la vitesse des astéroides augmente entre chaque vague, l'intervalle entre astéroides diminue.
+    Les astéroides sont placés aléatoirement.
 
-● Lancer une vague d'astéroides en faisant 'Entrée'
+● Lancer une vague d'astéroides en faisant 'Entrée', tant qu'il y a une vague, on ne peut pas lancer de une nouvelle vague
+
+● collision Missile - Astéroide : si il y a un missile qui touche un astéroide, l'astéroide perd de la vie (puissance du vaisseau). S'il lui reste de la vie, il décrémente en couleur.
+
+    Si la puissance du missile est supérieur a 2.5*vie de l'astéroide, le missile "reste en vie" et peut en tuer un autre derière.
+    Sinon le missile est détruit en même temps que l'astéroide
 
 
 METTRE COMMENTAIRE

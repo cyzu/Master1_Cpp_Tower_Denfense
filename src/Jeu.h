@@ -21,17 +21,14 @@ class Jeu{
     static const int nb_lignes = 5;
     static int vie;
     static int totalVaisseaux;
-    //static int totalVaisseaux; //total de vaisseaux posés dans la partie
-   // static int totalVagues;    //total de vague réussi
     
     public :
     static std::vector<Vaisseau> typesVaisseaux;
-    //static std::deque<Asteroide> asteroides;
     static Vaisseau choix;
     static Vague vague;
     
-    //static Asteroide asteroide;
     
+    /* MÉTHODES */
     static float getCaseX(const int x);
     static float getCaseY(const int y);
     
@@ -41,16 +38,19 @@ class Jeu{
     static int getNombreLignes();
     
     static void ajouterVaisseau(Vaisseau v);
-    //static void ajouterAsteroides(const int nombre, const float intervalle);
     
     static void addTotalVaisseaux();
     static int getTotalVaisseaux();
     
-    static void finPartie();
-    /*static void addTotalVagues();
-    static int getTotalVagues();*/
+    static void collision_Missile_Asteroide(Vaisseau *v, const int a);
+    static bool collision_Vaisseau_Asteroide();
     
-    //TODO astéroides ? Argent !!
+    static void impactAsteroide(Vaisseau *v, const int a);
+    static void impactMissile(Vaisseau *v, const int a);
+    static void impactVaisseau();
+    static void finPartie();
+    
+    //TODO Argent !!
 };
 
 #endif /* Case_h */

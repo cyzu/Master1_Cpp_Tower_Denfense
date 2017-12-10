@@ -57,7 +57,7 @@ class Vaisseau{
     
     int getCountF();
     int getVie();
-    std::deque<Missile> getMissiles();
+    std::deque<Missile>* getMissiles();
     
     //static int getTotalVaisseaux();
     
@@ -77,7 +77,7 @@ class Vaisseau{
     void setBlue(const float b);
     
     void setCountF(const int i);
-    void reduce(const int i);
+    void reduireVie(const int i);
     
     
     /*

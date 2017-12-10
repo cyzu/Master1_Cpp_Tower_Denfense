@@ -1,24 +1,29 @@
 #include "MyGameEngine.h"
 #include "Jeu.h"
+#include <math.h>
+#include <unistd.h>
 
 /* méthode qui anime tous les objects dans la fenêtre */
 void MyGameEngine::idle(){
     
-    for (int i = 0; i < vaisseau->size(); i++) {
-        (*vaisseau)[i]->tick();
+    // pour tous les vaisseaux
+    for (int v = 0; v < vaisseau->size(); v++) {
+        (*vaisseau)[v]->tick();
         
-        Missile premierM = (*vaisseau)[i]->getMissiles().front();
-        
-        for (int j = 0; j < Vague::asteroides.size(); j++) {
-            //if (premierM = )
-            //TODO effet de collision !!!!
+        // pour tous les astéroides
+        for (int a = 0; a < Vague::asteroides.size(); a++) {
+            //si il y a un ou plusieurs astéroides sur la même ligne qu'un des vaisseaux
+            if (fabs((*vaisseau)[v]->getY() - Vague::asteroides[a].getCentreY()) < 0.01){
+                
+                Jeu::collision_Missile_Asteroide((*vaisseau)[v], a);
+            }
         }
+
         
-        
-        
-        if ((*vaisseau)[i]->getVie() == 0) {
+    
+        if ((*vaisseau)[v]->getVie() == 0) {
             std::cout<<"destruction vaisseau..."<<std::endl;
-            vaisseau->erase(vaisseau->begin()+i);
+            vaisseau->erase(vaisseau->begin()+v);
         }
     }
     

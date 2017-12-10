@@ -10,8 +10,9 @@
 #include "Engine.h"
 #include "Vaisseau.h"
 #include <unistd.h>
+#include <math.h>
 
-int Jeu::vie = 100;
+int Jeu::vie = 50;
 int Jeu::totalVaisseaux = 0;
 
 std::vector<Vaisseau> Jeu::typesVaisseaux;
@@ -44,7 +45,7 @@ float Jeu::getCaseY(const int y){
 
 void Jeu::reduireVie(const int i){
     vie = getVie() - i;
-    if (vie < 0) vie = 0;
+    if (vie <= 0) vie = 0;
 }
 
 int Jeu::getVie(){
@@ -59,19 +60,52 @@ void Jeu::ajouterVaisseau(Vaisseau v){
     typesVaisseaux.push_back(v);
 }
 
-/*void Jeu::ajouterAsteroides(const int nombre, const float intervalle){
-    for (auto i = 0; i < nombre; i++) {
-        asteroides.push_back(Asteroide(1.1 +(i*intervalle), 0, 0.03));
-         //std::cout<<"astéroides "<<i<<" : "<<asteroides[i].getCentreX()<<std::endl;
-    }
-}*/
-
 void Jeu::addTotalVaisseaux(){
     totalVaisseaux ++;
 }
 
 int Jeu::getTotalVaisseaux(){
     return totalVaisseaux;
+}
+
+void Jeu::collision_Missile_Asteroide(Vaisseau *v, const int a){
+    if (v->getMissiles()->size() > 0){
+        Missile missile = v->getMissiles()->front();
+        if (fabs(missile.getX()+missile.getVector() - Vague::asteroides[a].getVectorsX()[5]) < 0.01){
+            impactMissile(v, a);
+            impactAsteroide(v, a);
+        }
+    }
+}
+
+bool Jeu::collision_Vaisseau_Asteroide(){
+    return false;
+}
+
+void Jeu::impactAsteroide(Vaisseau *v, const int a){
+    Vague::asteroides[a].reduireVie(v->getPuissance());
+    if (Vague::asteroides[a].getVie() == 0){
+        Vague::asteroides.erase(Vague::asteroides.begin()+a);
+    }
+    else {
+    
+        //diminuer la couleur en fonction de la vie perdue
+        float tauxRouge = (1.0 - Vague::asteroides[a].getRed())/6; // == vie d'un astéroide + 1
+        float tauxVert = (1.0 - Vague::asteroides[a].getGreen())/6;
+        float tauxBleu = (1.0 - Vague::asteroides[a].getBlue())/6;
+        
+        Vague::asteroides[a].setRed(Vague::asteroides[a].getRed() - v->getPuissance()*tauxRouge);
+        Vague::asteroides[a].setGreen(Vague::asteroides[a].getGreen() - v->getPuissance()*tauxVert);
+        Vague::asteroides[a].setBlue(Vague::asteroides[a].getBlue() -v->getPuissance()*tauxBleu);
+    }
+}
+
+void Jeu::impactMissile(Vaisseau *v, const int a){
+    if (v->getPuissance() < 2.5 * Vague::asteroides[a].getVie()) v->getMissiles()->pop_front();
+}
+
+void Jeu::impactVaisseau(){
+    
 }
 
 void Jeu::finPartie(){
@@ -81,16 +115,6 @@ void Jeu::finPartie(){
     std::cout<<"Total de vaisseaux posé pendant la partie : "<<Jeu::getTotalVaisseaux()<<std::endl;
     std::cout<<"Nombre de vague réussie : "<<Vague::getTotalVagues()<<std::endl;
     
-    //std::this::sleep_for(1500);
     sleep(2);
     exit(0);
-
 }
-
-/*void Jeu::addTotalVagues(){
-    totalVagues ++;
-}
-
-int Jeu::getTotalVagues(){
-    return totalVagues;
-}*/

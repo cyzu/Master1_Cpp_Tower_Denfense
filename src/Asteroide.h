@@ -18,12 +18,12 @@ class Asteroide{
     float centreX, centreY;
     float vector;
     int vie;
+    float red, green, blue;
     
     std::vector<float> x;
     std::vector<float> y;
     
-    //TODO vie, argent, impact missiles, types, choix aléatoires par l'ordi, count vague
-    
+    //TODO vie, argent,  types, 
     // todo : vitesse, puissance astéroides
     
     public :
@@ -45,6 +45,14 @@ class Asteroide{
     float getCentreX();
     float getCentreY();
     float getVector();
+    
+    void setRed(const float r);
+    void setGreen(const float g);
+    void setBlue(const float b);
+    
+    float getRed();
+    float getGreen();
+    float getBlue();
     
     void draw();
     void tick(const float v);

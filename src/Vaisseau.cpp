@@ -22,16 +22,14 @@ Vaisseau::Vaisseau(const float r_, const float g_, const float b_, const float x
     vitesse = v;
     puissance = p;
     
-    vie = 50;
+    vie = 15;
     
     red = r_;
     green = g_;
     blue = b_;
     
     Missile m(x+getVectorX(), y, puissance, vitesse);
-    missiles.push_front(m);
-    
-    //totalVaisseaux++;
+    missiles.push_back(m);
 }
 
 Vaisseau::Vaisseau(const Vaisseau &v){
@@ -46,7 +44,7 @@ Vaisseau::Vaisseau(const Vaisseau &v){
     vitesse = v.vitesse;
     puissance = v.puissance;
     
-    vie = 50;
+    vie = v.vie;
 }
 
 float Vaisseau::getX(){ return x; }
@@ -63,9 +61,7 @@ float Vaisseau::getBlue(){ return blue;}
 int Vaisseau::getCountF(){ return countF; }
 int Vaisseau::getVie(){ return vie;}
 
-std::deque<Missile> Vaisseau::getMissiles(){ return missiles; }
-
-//int Vaisseau::getTotalVaisseaux(){ return totalVaisseaux; }
+std::deque<Missile>* Vaisseau::getMissiles(){ return &missiles; }
 
 const float Vaisseau::getVectorX(){ return 0.07;}
 const float Vaisseau::getVectorY(){ return (2.0/Jeu::getNombreLignes())/3;}
@@ -82,9 +78,9 @@ void Vaisseau::setGreen(const float g){ green = g;}
 void Vaisseau::setBlue(const float b){ blue = b;}
 
 void Vaisseau::setCountF(const int i){ countF = i; }
-void Vaisseau::reduce(const int i){
+void Vaisseau::reduireVie(const int i){
     vie = getVie() - i;
-    if (vie < 0) vie = 0;
+    if (vie <= 0) vie = 0;
 }
 
 void Vaisseau::draw(){
@@ -98,9 +94,6 @@ void Vaisseau::draw(){
 }
 
 void Vaisseau::tick(){
-
-    //std::cout<<"count frequence "<<getCountF()<<std::endl;
-     //std::cout<<"vaisseau frequence "<<getFrequence()<<std::endl;
     
     // Gestion de temps d'intervalle pour créer une nouvelle missile
     if (getCountF() >= getFrequence()*150){
