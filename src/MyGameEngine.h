@@ -1,11 +1,9 @@
 #pragma once
-
 #include "Engine.h"
 #include "Vaisseau.h"
 
 class MyGameEngine:public GameEngine {
     std::vector<Vaisseau * > *vaisseau;
-   // Engine *engine;
     
     public:
     MyGameEngine(std::vector<Vaisseau * > *vaisseau_):

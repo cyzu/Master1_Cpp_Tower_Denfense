@@ -80,12 +80,6 @@ void MyControlEngine::KeyboardCallback(unsigned char key, int x, int y){
            }
        }
     }
-    
-    
-    /*if (key == '\r' and adding == false){
-        std::cout<<"boutton 'Entrée' appuyé"<<std::endl;
-        Jeu::vague.nouvelleVague(1.1, 0, 0.04, 4, 0.03, 0.2);
-    }*/
 }
 
 void MyControlEngine::annuler(){

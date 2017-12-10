@@ -14,13 +14,9 @@
 int Jeu::vie = 100;
 int Jeu::totalVaisseaux = 0;
 
-//int Jeu::totalVagues = -1;
-
 std::vector<Vaisseau> Jeu::typesVaisseaux;
-//std::deque<Asteroide> Jeu::asteroides;
 Vaisseau Jeu::choix(0.0f, 0.0f, 0.0f, -10, -10);
 Vague Jeu::vague;
-//Asteroide Jeu::asteroide(1.2, 0, 0.03);
 
 float Jeu::getCaseX(const int x){
     float window = glutGet(GLUT_WINDOW_WIDTH)/2;

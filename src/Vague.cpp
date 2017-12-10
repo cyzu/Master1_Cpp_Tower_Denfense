@@ -6,8 +6,10 @@
 //  Copyright © 2017 Chloé Bensoussan. All rights reserved.
 //
 
+#include "Jeu.h"
 #include "Vague.h"
 #include <deque>
+#include <cstdlib>
 
 std::deque<Asteroide> Vague::asteroides;
 int Vague::totalVagues = -1;
@@ -39,18 +41,19 @@ int Vague::getTotalVagues(){
 }
 
 void Vague::nouvelleVague(const float x, const float y, const float vecteur, const int nb, const float v, const float i_){
+    std::srand(std::time(0));
+    
     asteroides.clear();
-    //Vague(x, y, vecteur, nb, v, i_);
-    /*nombre = nb;
-    vitesse = v;
-    intervalle = i_;*/
     
     setNombre(nb);
     setVitesse(v);
     setIntervalle(i_);
-    
+ 
     for (auto i = 0; i < getNombre(); i++) {
-        asteroides.push_back(Asteroide(x + (i*getIntervalle()), y, vecteur));
+        int randomY = std::rand() % Jeu::getNombreLignes();
+        float coordY = (-1 + (2.0/Jeu::getNombreLignes()/2.0)) + (randomY * (2.0/Jeu::getNombreLignes()));
+        
+        asteroides.push_back(Asteroide(x + (i*getIntervalle()), coordY, vecteur));
     }
     totalVagues++;
 }
