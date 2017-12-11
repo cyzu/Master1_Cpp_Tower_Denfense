@@ -19,16 +19,16 @@ class Asteroide{
     float vector; // vecteur pour draw();
     float red, green, blue;
     int vie;
-   // int puissance;
+    float vitesse;
     
     std::vector<float> x;
     std::vector<float> y;
     
-    //TODO  argent,  types,
+    //TODO  argent,
     // todo :  puissance astéroides
     
     public :
-    Asteroide(const float x_, const float y_, const float v = 0.04, const int life = 5);
+    Asteroide(const float x_, const float y_, const float speed = 0.0005,  const float v = 0.04, const int life = 5);
     
     void initVectorsX();
     void initVectorsY();
@@ -55,8 +55,11 @@ class Asteroide{
     float getGreen();
     float getBlue();
     
+    float getVitesse();
+    void setVitesse(const float v);
+    
     void draw();
-    void tick(const float v);
+    void tick(/*const float v*/);
 };
 
 #endif /* Asteroi_des_hpp */

@@ -25,18 +25,18 @@ Vague Jeu::vague;
 
 /* MÉTHODES */
 void Jeu::initTypesVaisseaux(){
-    Jeu::ajouterVaisseau(Vaisseau(0.4f, 0.0f, 0.2f, 0, 0, 2, 10, 3));// Bordeaux
-    Jeu::ajouterVaisseau(Vaisseau(0.2f, 0.4f, 0.0f, 0, 0, 5, 6, 5)); // Vert
-    Jeu::ajouterVaisseau(Vaisseau(0.4f, 0.2f, 0.0f, 0, 0, 10, 3, 1));// Marron
+    Jeu::ajouterVaisseau(Vaisseau(0.4f, 0.0f, 0.2f, 0, 0, 5, 10, 3));// Bordeaux
+    Jeu::ajouterVaisseau(Vaisseau(0.2f, 0.4f, 0.0f, 0, 0, 2, 6, 5)); // Vert
+    Jeu::ajouterVaisseau(Vaisseau(0.4f, 0.2f, 0.0f, 0, 0, 9, 3, 1));// Marron
     Jeu::ajouterVaisseau(Vaisseau(0.0f, 0.2f, 0.4f, 0, 0, 1, 7, 15));// Bleu
 }
 
 void Jeu::initTypesAsteroides(){
-    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.035, 4));
-    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.04, 6));
-    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.045, 7));
-    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.05, 8));
-    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.055, 9));
+    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.0005, 0.035, 4));
+    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.0007, 0.04, 6));
+    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.0009, 0.045, 7));
+    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.001, 0.05, 8));
+    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.0012, 0.055, 9));
 }
 
 float Jeu::getCaseX(const int x){
@@ -53,14 +53,14 @@ float Jeu::getCaseX(const int x){
     
 float Jeu::getCaseY(const int y){
     float window = glutGet(GLUT_WINDOW_HEIGHT)/2;
-    float posY = (y - window) / window;
-        
+    float posY = -((y - window) / window);
+    
     float i = -1;
     while(i < 1 && posY > i){
-        i += 2.0/getNombreLignes();
+        i += 1.8/getNombreLignes();
     }
-    posY = i - 2.0/(2*getNombreLignes());
-    return -posY;
+    posY = i - 1.8/(2*getNombreLignes());
+    return posY;
 }
 
 void Jeu::reduireVie(const int i){
@@ -157,10 +157,8 @@ void Jeu::impactVaisseau(std::vector<Vaisseau *> *v, const int i, const int a){
 void Jeu::affichageChoix(){
     Jeu::choix.draw();
     
-    float f = 10 - (10*Jeu::choix.getFrequence());
-   
     std::ostringstream sf;
-    sf <<"Frequence : "<< std::setprecision(3) << f;
+    sf <<"Frequence : "<< std::setprecision(3) << Jeu::choix.getFrequence();
     std::string strFrequence = sf.str();
     
     std::ostringstream sv;

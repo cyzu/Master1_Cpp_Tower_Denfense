@@ -18,11 +18,11 @@ MyGraphicEngine::MyGraphicEngine(std::vector<Vaisseau * > * vaisseau_){
 
 void MyGraphicEngine::Draw(){
     
-    /* Quadrillage gris en fond */
-    const float horizontal_scale  = 2.0/Jeu::getNombreLignes();
+    /* Quadrillage gris en fond (1.8 = marge de bande en tête pour écrire les informations */
+    const float horizontal_scale  = 1.8/Jeu::getNombreLignes();
     for (float i = -1; i < 1; i += 0.2) { //vertical
         for (float j = -1; j < 1; j += horizontal_scale) { //horizontal
-            GraphicPrimitives::drawLine2D(i, 1, i, -1, 0.10f, 0.10f, 0.10f);
+            GraphicPrimitives::drawLine2D(i, 0.8, i, -1, 0.10f, 0.10f, 0.10f);
             GraphicPrimitives::drawLine2D(-1, j, 1, j, 0.10f, 0.10f, 0.10f);
         }
     }

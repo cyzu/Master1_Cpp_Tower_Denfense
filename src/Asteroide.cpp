@@ -8,20 +8,23 @@
 
 #include "Asteroide.h"
 #include <vector>
+#include <unistd.h>
 
-Asteroide::Asteroide(const float x_, const float y_, const float v, const int life){
+Asteroide::Asteroide(const float x_, const float y_, const float speed, const float v, const int life){
     centreX = x_;
     centreY = y_;
     vector = v;
     
     vie = life;
     
+    vitesse = speed;
+    
     initVectorsX();
     initVectorsY();
     
-    red = life/10.0;   //0.5f; //life/0.5
-    green = life/10.0; //0.5f;
-    blue = life/16.6;  //0.3f;
+    red = life/10.0;
+    green = life/10.0;
+    blue = life/16.6;
 }
 
 void Asteroide::initVectorsX(){
@@ -86,12 +89,17 @@ float Asteroide::getRed(){ return red; }
 float Asteroide::getGreen(){ return green; }
 float Asteroide::getBlue(){ return blue; }
 
+float Asteroide::getVitesse(){ return vitesse; }
+void Asteroide::setVitesse(const float v){ vitesse = v; }
+
 void Asteroide::draw(){
     GraphicPrimitives::drawFillPolygone2D(x, y, red, green, blue);
     GraphicPrimitives::drawFillRect2D(x[4], y[4], getVector()*2, getVector()*2, red, green, blue);
 }
 
-void Asteroide::tick(const float v){
-    setCentreX(getCentreX() - v);
+void Asteroide::tick(/*const float v*/){
+    //std::cout<<"astéroide vitesse : "<<getVitesse()<<std::endl;
+    setCentreX(getCentreX() - getVitesse());
+    //sleep(1);
 }
 

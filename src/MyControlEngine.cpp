@@ -5,8 +5,15 @@
 void MyControlEngine::MouseCallback(int button, int state, int x, int y){
     
     if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
+
         float x_ = Jeu::getCaseX(x);
         float y_ = Jeu::getCaseY(y);
+        
+        // Si on clique sur la bande d'en-tête
+        if (y_ >= 0.8){
+            annuler();
+            return;
+        }
         
         bool empty = true;
         
@@ -63,11 +70,14 @@ void MyControlEngine::KeyboardCallback(unsigned char key, int x, int y){
            Jeu::addTotalVaisseaux();
        }
        else {
-           if (Vague::asteroides.size() == 0){
-               Jeu::vague.nouvelleVague(1.1, 0, 0.04, Jeu::vague.getNombre()+1, Jeu::vague.getVitesse()+0.0001, Jeu::vague.getIntervalle()-0.008);
-           }
-           else std::cout<<"La vague n'est pas encore terminée. Battez-vous!"<<std::endl;
+           //if (Vague::asteroides.size() == 0){
+               Jeu::vague.nouvelleVague(1.1, 0, 0.04, Jeu::vague.getNombre()+1, /*Jeu::vague.getVitesse()+0.0001,*/ Jeu::vague.getIntervalle());
+          // }
+           //else std::cout<<"La vague n'est pas encore terminée. Battez-vous!"<<std::endl;
        }
+    }
+    if (key == '\b' or key == 127){
+        annuler();
     }
 }
 

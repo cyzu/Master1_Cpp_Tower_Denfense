@@ -14,8 +14,7 @@ UN MISSILE
                  |/
                 point 3 (x-vectorX, y-vectorY)
 
-● frequence des missiles [1, 10]: frequence = 1-(0.1*input). Pour tous les frequence * 150 appels de ticks,
-                                    un nouvel missile est cré.
+● frequence des missiles [1, 10]: Pour tous les (1/frequence)*200 appels de ticks, un nouvel missile est créé.
 ● vitesse des missiles [1, 5]: plus la vitesse est grande, plus le vecteur de déplacement des missiles est grande aussi
                                 (dans Missile::tick())
                                 VposX = vitesse/5
@@ -33,6 +32,7 @@ UN MISSILE
 ● choix Vaisseaux : clique sur la même case pour faire défiler les différents types de vaisseaux,
                     puis appuyer sur 'Entrée' pour sélectionner le vaisseau.
     (Une fois un vaisseau placé sur une case, on ne peut plus y toucher, on ne peut pas poser par dessus, si on change de case on remet le compteur à zéro)
+    Arreter de poser des vaisseaux en faisant 'Supprimer' ou 'retour' (delete ou backspace)
 
 ● Asstéroïdes : (x, y) qui correspond au centre de l'astéroides
 
