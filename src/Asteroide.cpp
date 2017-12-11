@@ -9,19 +9,19 @@
 #include "Asteroide.h"
 #include <vector>
 
-Asteroide::Asteroide(const float x_, const float y_, const float v){
+Asteroide::Asteroide(const float x_, const float y_, const float v, const int life){
     centreX = x_;
     centreY = y_;
     vector = v;
     
-    vie = 5;
+    vie = life;
     
     initVectorsX();
     initVectorsY();
     
-    red = 0.5f;
-    green = 0.5f;
-    blue = 0.3f;
+    red = life/10.0;   //0.5f; //life/0.5
+    green = life/10.0; //0.5f;
+    blue = life/16.6;  //0.3f;
 }
 
 void Asteroide::initVectorsX(){

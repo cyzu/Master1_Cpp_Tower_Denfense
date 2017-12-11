@@ -22,11 +22,15 @@ class Jeu{
     
     public :
     static std::vector<Vaisseau> typesVaisseaux;
+    static std::vector<Asteroide> typesAsteroides;
     static Vaisseau choix;
     static Vague vague;
     
     
     /* MÉTHODES */
+    static void initTypesVaisseaux();
+    static void initTypesAsteroides();
+    
     static float getCaseX(const int x);
     static float getCaseY(const int y);
     
@@ -36,6 +40,7 @@ class Jeu{
     static int getNombreLignes();
     
     static void ajouterVaisseau(Vaisseau v);
+    static void ajouterAsteroide(Asteroide a);
     
     static void addTotalVaisseaux();
     static int getTotalVaisseaux();

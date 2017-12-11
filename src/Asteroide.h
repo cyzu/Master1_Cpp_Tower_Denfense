@@ -16,18 +16,19 @@
 class Asteroide{
     private :
     float centreX, centreY;
-    float vector;
-    int vie;
+    float vector; // vecteur pour draw();
     float red, green, blue;
+    int vie;
+   // int puissance;
     
     std::vector<float> x;
     std::vector<float> y;
     
-    //TODO vie, argent,  types, 
-    // todo : vitesse, puissance astéroides
+    //TODO  argent,  types,
+    // todo :  puissance astéroides
     
     public :
-    Asteroide(const float x_, const float y_, const float v = 0.04);
+    Asteroide(const float x_, const float y_, const float v = 0.04, const int life = 5);
     
     void initVectorsX();
     void initVectorsY();

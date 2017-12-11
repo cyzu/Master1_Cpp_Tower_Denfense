@@ -16,8 +16,27 @@ int Jeu::vie = 50;
 int Jeu::totalVaisseaux = 0;
 
 std::vector<Vaisseau> Jeu::typesVaisseaux;
+std::vector<Asteroide> Jeu::typesAsteroides;
+
 Vaisseau Jeu::choix(0.0f, 0.0f, 0.0f, -10, -10);
 Vague Jeu::vague;
+
+
+/* MÉTHODES */
+void Jeu::initTypesVaisseaux(){
+    Jeu::ajouterVaisseau(Vaisseau(0.4f, 0.0f, 0.2f, 0, 0, 2, 10, 3));// Bordeaux
+    Jeu::ajouterVaisseau(Vaisseau(0.2f, 0.4f, 0.0f, 0, 0, 5, 6, 5)); // Vert
+    Jeu::ajouterVaisseau(Vaisseau(0.4f, 0.2f, 0.0f, 0, 0, 10, 3, 1));// Marron
+    Jeu::ajouterVaisseau(Vaisseau(0.0f, 0.2f, 0.4f, 0, 0, 1, 7, 15));// Bleu
+}
+
+void Jeu::initTypesAsteroides(){
+    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.035, 4));
+    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.04, 6));
+    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.045, 7));
+    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.05, 8));
+    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.055, 9));
+}
 
 float Jeu::getCaseX(const int x){
     float window = glutGet(GLUT_WINDOW_WIDTH)/2;
@@ -58,6 +77,10 @@ int Jeu::getNombreLignes(){
 
 void Jeu::ajouterVaisseau(Vaisseau v){
     typesVaisseaux.push_back(v);
+}
+
+void Jeu::ajouterAsteroide(Asteroide a){
+    Jeu::typesAsteroides.push_back(a);
 }
 
 void Jeu::addTotalVaisseaux(){
