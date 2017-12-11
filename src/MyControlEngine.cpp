@@ -1,6 +1,5 @@
 #include "MyControlEngine.h"
 #include "Jeu.h"
-//#include "Vaisseau.h"
 #include "Vague.h"
 
 void MyControlEngine::MouseCallback(int button, int state, int x, int y){
@@ -19,7 +18,6 @@ void MyControlEngine::MouseCallback(int button, int state, int x, int y){
                 annuler();
             }
         }
-        
         // le compteur se remet à zéro quand on change de case
         if (adding == true && (currentX != x_ || currentY != y_)){
             count = -1;

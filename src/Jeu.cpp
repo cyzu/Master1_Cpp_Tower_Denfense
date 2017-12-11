@@ -7,8 +7,6 @@
 //
 
 #include "Jeu.h"
-//#include "Engine.h"
-//#include "Vaisseau.h"
 #include <unistd.h>
 #include <math.h>
 #include <string.h>
@@ -98,7 +96,7 @@ int Jeu::getTotalVaisseaux(){
 bool Jeu::collision_Missile_Asteroide(Vaisseau *v, const int a){
     if (v->getMissiles()->size() > 0){
         Missile missile = v->getMissiles()->front();
-        if (fabs(missile.getX()+missile.getVector() - Vague::asteroides[a].getVectorsX()[5]) < 0.02){
+        if (Vague::asteroides[a].getVectorsX()[5] < 1 and fabs(missile.getX()+missile.getVector() - Vague::asteroides[a].getVectorsX()[5]) < 0.02){
             impactMissile(v, a);
             return impactAsteroide(v, a);
         }
@@ -159,8 +157,10 @@ void Jeu::impactVaisseau(std::vector<Vaisseau *> *v, const int i, const int a){
 void Jeu::affichageChoix(){
     Jeu::choix.draw();
     
+    float f = 10 - (10*Jeu::choix.getFrequence());
+   
     std::ostringstream sf;
-    sf <<"Fréquence : "<< std::setprecision(3) << Jeu::choix.getFrequence();
+    sf <<"Frequence : "<< std::setprecision(3) << f;
     std::string strFrequence = sf.str();
     
     std::ostringstream sv;
@@ -171,9 +171,9 @@ void Jeu::affichageChoix(){
     sp<<"\nPuissance : "<<std::setprecision(3)<<Jeu::choix.getPuissance();
     std::string strPuissance = sp.str();
     
-    GraphicPrimitives::drawText2D(&strFrequence[0], Jeu::choix.getX()+0.1, Jeu::choix.getY()+0.1, 1.0f, 1.0f, 1.0f);
-    GraphicPrimitives::drawText2D(&strVitesse[0], Jeu::choix.getX()+0.1, Jeu::choix.getY(), 1.0f, 1.0f,  1.0f);
-    GraphicPrimitives::drawText2D(&strPuissance[0], Jeu::choix.getX()+0.1, Jeu::choix.getY()-0.1, 1.0f, 1.0f,  1.0f);
+    GraphicPrimitives::drawText2D(&strFrequence[0], Jeu::choix.getX()+0.08, Jeu::choix.getY()+0.07, 0.3f, 0.5f, 0.5f);
+    GraphicPrimitives::drawText2D(&strVitesse[0], Jeu::choix.getX()+0.08, Jeu::choix.getY(), 0.3f, 0.5f, 0.5f);
+    GraphicPrimitives::drawText2D(&strPuissance[0], Jeu::choix.getX()+0.08, Jeu::choix.getY()-0.07, 0.3f, 0.5f, 0.5f);
 }
 
 void Jeu::finPartie(){

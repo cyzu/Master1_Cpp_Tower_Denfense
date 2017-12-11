@@ -51,19 +51,19 @@ void Vague::nouvelleVague(const float x, const float y, const float vecteur, con
         int randomY = std::rand() % Jeu::getNombreLignes();
         float coordY = (-1 + (2.0/Jeu::getNombreLignes()/2.0)) + (randomY * (2.0/Jeu::getNombreLignes()));
         
-        if (totalVagues > 2 and totalVagues < 6){
+        if (totalVagues > 2 and totalVagues < 8){
             int randomA = std::rand() % Jeu::typesAsteroides.size()-1;
             asteroides.push_back(Asteroide(x + (i*getIntervalle()), coordY, Jeu::typesAsteroides[randomA+1].getVector(), Jeu::typesAsteroides[randomA+1].getVie()));
         }
-        else if (totalVagues >= 6 and totalVagues < 10){
+        else if (totalVagues >= 8 and totalVagues < 13){
             int randomA = std::rand() % Jeu::typesAsteroides.size()-2;
             asteroides.push_back(Asteroide(x + (i*getIntervalle()), coordY, Jeu::typesAsteroides[randomA+2].getVector(), Jeu::typesAsteroides[randomA+2].getVie()));
         }
-        else if (totalVagues >= 10 and totalVagues < 15){
+        else if (totalVagues >= 13 and totalVagues < 18){
             int randomA = std::rand() % Jeu::typesAsteroides.size()-3;
             asteroides.push_back(Asteroide(x + (i*getIntervalle()), coordY, Jeu::typesAsteroides[randomA+3].getVector(), Jeu::typesAsteroides[randomA+3].getVie()));
         }
-        else if (totalVagues >= 15){
+        else if (totalVagues >= 18){
             int randomA = std::rand() % Jeu::typesAsteroides.size()-4;
             asteroides.push_back(Asteroide(x + (i*getIntervalle()), coordY, Jeu::typesAsteroides[randomA+4].getVector(), Jeu::typesAsteroides[randomA+4].getVie()));
         }

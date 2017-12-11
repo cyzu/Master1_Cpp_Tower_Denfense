@@ -1,7 +1,6 @@
 #pragma once
 #include "Engine.h"
 #include "Vaisseau.h"
-//#include "Jeu.h"
 
 class MyControlEngine : public ControlEngine {
     std::vector<Vaisseau * > *vaisseau;
