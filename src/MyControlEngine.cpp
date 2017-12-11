@@ -1,6 +1,6 @@
 #include "MyControlEngine.h"
 #include "Jeu.h"
-#include "Vaisseau.h"
+//#include "Vaisseau.h"
 #include "Vague.h"
 
 void MyControlEngine::MouseCallback(int button, int state, int x, int y){
@@ -22,7 +22,6 @@ void MyControlEngine::MouseCallback(int button, int state, int x, int y){
         
         // le compteur se remet à zéro quand on change de case
         if (adding == true && (currentX != x_ || currentY != y_)){
-            std::cout<<"remise à zéro count"<<std::endl;
             count = -1;
             currentX = x_;
             currentY = y_;
@@ -52,18 +51,13 @@ void MyControlEngine::MouseCallback(int button, int state, int x, int y){
 
 void MyControlEngine::KeyboardCallback(unsigned char key, int x, int y){
     if (key == '\r'){
-        //std::cout<<"Keyboard Callback : 'entrée'"<<key;
        if (adding == true){
-          // std::cout<<" -- création vaisseau"<<key<<std::endl;
            int i = count % Jeu::typesVaisseaux.size();
-        
-           float x_ = Jeu::getCaseX(x);
-           float y_ = Jeu::getCaseY(y);
 
            vaisseau->push_back(new Vaisseau (Jeu::typesVaisseaux[i].getRed(),
                                           Jeu::typesVaisseaux[i].getGreen(),
                                           Jeu::typesVaisseaux[i].getBlue(),
-                                          x_, y_,
+                                          currentX, currentY,
                                           Jeu::typesVaisseaux[i].getFrequence(),
                                           Jeu::typesVaisseaux[i].getVitesse(),
                                           Jeu::typesVaisseaux[i].getPuissance()));
@@ -71,13 +65,10 @@ void MyControlEngine::KeyboardCallback(unsigned char key, int x, int y){
            Jeu::addTotalVaisseaux();
        }
        else {
-           //std::cout<<" -- autre"<<key<<std::endl;
            if (Vague::asteroides.size() == 0){
                Jeu::vague.nouvelleVague(1.1, 0, 0.04, Jeu::vague.getNombre()+1, Jeu::vague.getVitesse()+0.0001, Jeu::vague.getIntervalle()-0.008);
-           
-              // std::cout<<"Nombre de vague : "<<Vague::getTotalVagues()<<std::endl;
-               //std::cout<<"mes vie : "<<Jeu::getVie()<<std::endl;
            }
+           else std::cout<<"La vague n'est pas encore terminée. Battez-vous!"<<std::endl;
        }
     }
 }

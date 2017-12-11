@@ -5,7 +5,7 @@
 //  Created by Chloé 雪乃 BENSOUSSAN 下村 on 08/12/2017.
 //  Copyright © 2017 Chloé Bensoussan. All rights reserved.
 //
-
+#pragma once
 #ifndef Asteroi_des_hpp
 #define Asteroi_des_hpp
 

@@ -9,12 +9,10 @@
 #ifndef Case_h
 #define Case_h
 
-
-#include "Engine.h"
 #include "Vaisseau.h"
-//#include "Asteroide.h"
 #include "Vague.h"
-//#include <stdio.h>
+
+class Vaisseau;
 
 class Jeu{
     private:
@@ -42,12 +40,12 @@ class Jeu{
     static void addTotalVaisseaux();
     static int getTotalVaisseaux();
     
-    static void collision_Missile_Asteroide(Vaisseau *v, const int a);
-    static bool collision_Vaisseau_Asteroide();
+    static bool collision_Missile_Asteroide(Vaisseau *v, const int a);
+    static void collision_Vaisseau_Asteroide(std::vector<Vaisseau *> *v, const int i, const int a);
     
-    static void impactAsteroide(Vaisseau *v, const int a);
+    static bool impactAsteroide(Vaisseau *v, const int a);
     static void impactMissile(Vaisseau *v, const int a);
-    static void impactVaisseau();
+    static void impactVaisseau(std::vector<Vaisseau *> *v, const int i, const int a);
     static void finPartie();
     
     //TODO Argent !!

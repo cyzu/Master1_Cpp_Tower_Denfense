@@ -22,8 +22,8 @@ void MyGraphicEngine::Draw(){
     const float horizontal_scale  = 2.0/Jeu::getNombreLignes();
     for (float i = -1; i < 1; i += 0.2) { //vertical
         for (float j = -1; j < 1; j += horizontal_scale) { //horizontal
-            GraphicPrimitives::drawLine2D(i, 1, i, -1, 0.25f, 0.25f, 0.25f);
-            GraphicPrimitives::drawLine2D(-1, j, 1, j, 0.25f, 0.25f, 0.25f);
+            GraphicPrimitives::drawLine2D(i, 1, i, -1, 0.15f, 0.15f, 0.15f);
+            GraphicPrimitives::drawLine2D(-1, j, 1, j, 0.15f, 0.15f, 0.15f);
         }
     }
     

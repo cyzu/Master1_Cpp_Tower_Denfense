@@ -6,24 +6,17 @@
 /* méthode qui anime tous les objects dans la fenêtre */
 void MyGameEngine::idle(){
     
-    // pour tous les vaisseaux
     for (int v = 0; v < vaisseau->size(); v++) {
         (*vaisseau)[v]->tick();
         
-        // pour tous les astéroides
         for (int a = 0; a < Vague::asteroides.size(); a++) {
-            //si il y a un ou plusieurs astéroides sur la même ligne qu'un des vaisseaux
+            
             if (fabs((*vaisseau)[v]->getY() - Vague::asteroides[a].getCentreY()) < 0.01){
-                
-                Jeu::collision_Missile_Asteroide((*vaisseau)[v], a);
+                //si il y a un vaisseau et un astéroide sur la même ligne.
+                if (!Jeu::collision_Missile_Asteroide((*vaisseau)[v], a)){
+                    Jeu::collision_Vaisseau_Asteroide(&(*vaisseau), v, a);
+                }
             }
-        }
-
-        
-    
-        if ((*vaisseau)[v]->getVie() == 0) {
-            std::cout<<"destruction vaisseau..."<<std::endl;
-            vaisseau->erase(vaisseau->begin()+v);
         }
     }
     
@@ -41,5 +34,6 @@ void MyGameEngine::idle(){
         if (Jeu::getVie() <= 0){
             Jeu::finPartie();
         }
+        else std::cout<<"Vie du jeu : "<<Jeu::getVie()<<std::endl;
     }
 }

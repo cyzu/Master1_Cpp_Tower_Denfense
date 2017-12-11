@@ -2,7 +2,6 @@
 #include "Engine.h"
 #include "GraphicPrimitives.h"
 #include "Vaisseau.h"
-//#include "Asteroide.h"
 #include <stdlib.h>
 
 class MyGraphicEngine:public GraphicEngine {

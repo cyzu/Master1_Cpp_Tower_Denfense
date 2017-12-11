@@ -12,8 +12,6 @@
 #include <math.h>
 #include <unistd.h>
 
-//int Vaisseau::totalVaisseaux = 0;
-
 Vaisseau::Vaisseau(const float r_, const float g_, const float b_, const float x_, const float y_, const float f, const float v, const float p){
     x = x_;
     y = y_;
@@ -28,6 +26,10 @@ Vaisseau::Vaisseau(const float r_, const float g_, const float b_, const float x
     green = g_;
     blue = b_;
     
+    redInit = red;
+    greenInit = green;
+    blueInit = blue;
+    
     Missile m(x+getVectorX(), y, puissance, vitesse);
     missiles.push_back(m);
 }
@@ -39,6 +41,10 @@ Vaisseau::Vaisseau(const Vaisseau &v){
     red = v.red;
     green = v.green;
     blue = v.blue;
+    
+    redInit = v.redInit;
+    greenInit = v.greenInit;
+    blueInit = v.blueInit;
     
     frequence = v.frequence;
     vitesse = v.vitesse;
@@ -63,8 +69,8 @@ int Vaisseau::getVie(){ return vie;}
 
 std::deque<Missile>* Vaisseau::getMissiles(){ return &missiles; }
 
-const float Vaisseau::getVectorX(){ return 0.07;}
-const float Vaisseau::getVectorY(){ return (2.0/Jeu::getNombreLignes())/3;}
+const float Vaisseau::getVectorX(){ return 0.07; }
+const float Vaisseau::getVectorY(){ return (2.0/Jeu::getNombreLignes())/3;; }
 
 void Vaisseau::setX(const float a){ x = a;}
 void Vaisseau::setY(const float a){ y = a;}
@@ -84,9 +90,8 @@ void Vaisseau::reduireVie(const int i){
 }
 
 void Vaisseau::draw(){
-    const float vectorX = getVectorX();
-    const float vectorY = getVectorY();
-    GraphicPrimitives::drawFillTriangle2D(x+vectorX, y, x-vectorX, y+vectorY, x-vectorX, y-vectorY, red, green, blue);
+    GraphicPrimitives::drawFillTriangle2D(x+getVectorX()+0.003, y, x-getVectorX()-0.002, y+getVectorY()+0.004, x-getVectorX()-0.002, y-getVectorY()-0.004, redInit, greenInit, blueInit);
+    GraphicPrimitives::drawFillTriangle2D(x+getVectorX(), y, x-getVectorX(), y+getVectorY(), x-getVectorX(), y-getVectorY(), red, green, blue);
     
     for (auto i = 0; i < missiles.size(); i++) {
         missiles[i].draw();

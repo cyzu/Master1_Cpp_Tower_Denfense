@@ -22,7 +22,7 @@ UN MISSILE
 ● puissance des missiles [1,10]: la longueur des missiles varie en fonction de sa puissance.
                                 Plus la puissance est grande, plus le missile est long.
                                 Vecteur longueur = puissance * 0.03
-● destruction missiles : suppression de missiles lorsque son coordonnée X dépasse 1 (hors de la fenêtre)
+● destruction missiles : suppression de missiles lorsque son coordonnée X dépasse 1 (hors de la fenêtre) ou collision avec astéroide
 ● destruction vaisseau : suppression du vaisseau lorsque la vie a atteint 0
 ● Les missiles des autres vaisseaux ne détruisent pas le vaisseau
 
@@ -56,7 +56,9 @@ dessiner polygone : drawFillPolygone2D puis remplir le centre avec drawFillRect2
 
 ● Lancer une vague d'astéroides en faisant 'Entrée', tant qu'il y a une vague, on ne peut pas lancer de une nouvelle vague
 
-● collision Missile - Astéroide : si il y a un missile qui touche un astéroide, l'astéroide perd de la vie (puissance du vaisseau). S'il lui reste de la vie, il décrémente en couleur.
+● collision Missile - Astéroide : si il y a un missile qui touche un astéroide, l'astéroide perd de la vie (puissance du vaisseau).
+    Les missiles ne peuvent détruire que par le bout!!
+    S'il lui reste de la vie, il décrémente en couleur.
 
     Si la puissance du missile est supérieur a 2.5*vie de l'astéroide, le missile "reste en vie" et peut en tuer un autre derière.
     Sinon le missile est détruit en même temps que l'astéroide

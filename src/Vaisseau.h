@@ -10,6 +10,7 @@
 #define Vaisseau_h
 
 #include "GraphicPrimitives.h"
+#include "Jeu.h"
 #include "Missile.h"
 //#include <stdio.h>
 #include <deque>
@@ -20,14 +21,15 @@ class Vaisseau{
     
     float x, y; //Coordonnées du milieu du vaisseau
     float frequence, vitesse, puissance;
-    float red, green, blue;//r = 0.4f ,b = 0.2f ,g = 0.0f; //couleur bordeaux
+    float red, green, blue;
+    float redInit, greenInit, blueInit;
     int vie;
     
     int countF = 0;
+    /*float vectorX = 0.7;
+    float vectorY = (2.0/Jeu::getNombreLignes())/3;*/
     
     std::deque<Missile> missiles;
-    
-    //static int totalVaisseaux;
     
     public :
     
@@ -58,8 +60,6 @@ class Vaisseau{
     int getCountF();
     int getVie();
     std::deque<Missile>* getMissiles();
-    
-    //static int getTotalVaisseaux();
     
     /* Utile pour dessiner les vaisseaux */
     const float getVectorX();
