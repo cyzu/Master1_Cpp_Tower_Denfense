@@ -51,6 +51,8 @@ class Jeu{
     static bool impactAsteroide(Vaisseau *v, const int a);
     static void impactMissile(Vaisseau *v, const int a);
     static void impactVaisseau(std::vector<Vaisseau *> *v, const int i, const int a);
+    
+    static void affichageChoix();
     static void finPartie();
     
     //TODO Argent !!

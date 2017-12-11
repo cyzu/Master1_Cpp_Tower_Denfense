@@ -26,8 +26,6 @@ class Vaisseau{
     int vie;
     
     int countF = 0;
-    /*float vectorX = 0.7;
-    float vectorY = (2.0/Jeu::getNombreLignes())/3;*/
     
     std::deque<Missile> missiles;
     

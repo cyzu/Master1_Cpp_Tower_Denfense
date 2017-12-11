@@ -6,7 +6,7 @@
 
 MyGraphicEngine::MyGraphicEngine(std::vector<Vaisseau * > * vaisseau_){
     vaisseau = vaisseau_;
-    str = new char[13]{'C','l','i','c',' ','&',' ','E','n','j','o','y','\0'};
+    //str = new char[13]{'C','l','i','c',' ','&',' ','E','n','j','o','y','\0'};
     
    /* x1 = 0.5f;
     x2 = -0.5f;
@@ -27,8 +27,8 @@ void MyGraphicEngine::Draw(){
         }
     }
     
-    GraphicPrimitives::drawLine2D(0.5, 0.5, 0.9, 0.9, 1.0f, 0.0f, 0.0f);
-    GraphicPrimitives::drawText2D(str,-0.9f,0.9f,1.0f,0.3f, 0.8f);
+    //GraphicPrimitives::drawLine2D(0.5, 0.5, 0.9, 0.9, 1.0f, 0.0f, 0.0f);
+    //GraphicPrimitives::drawText2D(str,-0.9f,0.9f,1.0f,0.3f, 0.8f);
     
     for (auto i = 0; i < Vague::asteroides.size(); i++) {
         Vague::asteroides[i].draw();
@@ -38,8 +38,7 @@ void MyGraphicEngine::Draw(){
         (*vaisseau)[i]->draw();
     }
     
-    Jeu::choix.draw();
-    //Jeu::asteroide.draw();
+    Jeu::affichageChoix();
     
 
     /*

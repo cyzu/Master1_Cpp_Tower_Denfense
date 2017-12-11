@@ -7,7 +7,7 @@
 class MyGraphicEngine:public GraphicEngine {
     
     std::vector<Vaisseau * > *vaisseau;
-    char * str;
+    //char * str;
     
     public:
     MyGraphicEngine(std::vector<Vaisseau * > * vaisseau_);

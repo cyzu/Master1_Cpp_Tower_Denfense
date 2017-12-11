@@ -11,6 +11,9 @@
 //#include "Vaisseau.h"
 #include <unistd.h>
 #include <math.h>
+#include <string.h>
+#include <sstream>
+#include <iomanip>
 
 int Jeu::vie = 50;
 int Jeu::totalVaisseaux = 0;
@@ -123,9 +126,9 @@ bool Jeu::impactAsteroide(Vaisseau *v, const int a){
         float tauxVert = (1.0 - Vague::asteroides[a].getGreen())/6;
         float tauxBleu = (1.0 - Vague::asteroides[a].getBlue())/6;
         
-        Vague::asteroides[a].setRed(Vague::asteroides[a].getRed() - v->getPuissance()*tauxRouge);
-        Vague::asteroides[a].setGreen(Vague::asteroides[a].getGreen() - v->getPuissance()*tauxVert);
-        Vague::asteroides[a].setBlue(Vague::asteroides[a].getBlue() -v->getPuissance()*tauxBleu);
+        Vague::asteroides[a].setRed(Vague::asteroides[a].getRed() - tauxRouge);
+        Vague::asteroides[a].setGreen(Vague::asteroides[a].getGreen() - tauxVert);
+        Vague::asteroides[a].setBlue(Vague::asteroides[a].getBlue() - tauxBleu);
         return false;
     }
 }
@@ -148,9 +151,29 @@ void Jeu::impactVaisseau(std::vector<Vaisseau *> *v, const int i, const int a){
         float tauxBleu = (1.0 - (*v)[i]->getBlue())/((*v)[i]->getVie()+2);
     
         (*v)[i]->setRed((*v)[i]->getRed() - tauxRouge);
-        (*v)[i]->setGreen((*v)[i]->getGreen() - tauxVert);//Vague::asteroides[a].getVie()*tauxVert);
+        (*v)[i]->setGreen((*v)[i]->getGreen() - tauxVert);
         (*v)[i]->setBlue((*v)[i]->getBlue() - tauxBleu);
     }
+}
+
+void Jeu::affichageChoix(){
+    Jeu::choix.draw();
+    
+    std::ostringstream sf;
+    sf <<"Fréquence : "<< std::setprecision(3) << Jeu::choix.getFrequence();
+    std::string strFrequence = sf.str();
+    
+    std::ostringstream sv;
+    sv<<"\nVitesse : "<<std::setprecision(3)<<Jeu::choix.getVitesse();
+    std::string strVitesse = sv.str();
+    
+    std::ostringstream sp;
+    sp<<"\nPuissance : "<<std::setprecision(3)<<Jeu::choix.getPuissance();
+    std::string strPuissance = sp.str();
+    
+    GraphicPrimitives::drawText2D(&strFrequence[0], Jeu::choix.getX()+0.1, Jeu::choix.getY()+0.1, 1.0f, 1.0f, 1.0f);
+    GraphicPrimitives::drawText2D(&strVitesse[0], Jeu::choix.getX()+0.1, Jeu::choix.getY(), 1.0f, 1.0f,  1.0f);
+    GraphicPrimitives::drawText2D(&strPuissance[0], Jeu::choix.getX()+0.1, Jeu::choix.getY()-0.1, 1.0f, 1.0f,  1.0f);
 }
 
 void Jeu::finPartie(){
