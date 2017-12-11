@@ -14,20 +14,16 @@
 std::deque<Asteroide> Vague::asteroides;
 int Vague::totalVagues = -1;
 
-Vague::Vague(const float x, const float y, const float vecteur, const int nb, /*const float v,*/ const float i_){
+Vague::Vague(const float x, const float y, const float vecteur, const int nb){
     nombre = nb;
-    //vitesse = v;
-    intervalle = i_;
     
     for (auto i = 0; i < nombre; i++) {
-        asteroides.push_back(Asteroide(x + (i*i_), y, vecteur));
+        asteroides.push_back(Asteroide(x + (i*intervalle), y, vecteur));
     }
 }
 
 Vague::Vague(){
     nombre = 2;
-    //vitesse = 0.0005;
-    intervalle = 0.15;
 }
 
 Vague::~Vague(){
@@ -38,14 +34,12 @@ int Vague::getTotalVagues(){
     return totalVagues;
 }
 
-void Vague::nouvelleVague(const float x, const float y, const float vecteur, const int nb, /*const float v,*/ const float i_){
+void Vague::nouvelleVague(const float x, const float y, const float vecteur, const int nb){
     std::cout<<"Nouvelle Vague : "<<nb<<std::endl;
     std::srand(std::time(0));
     asteroides.clear();
     
     setNombre(nb);
-    //setVitesse(v);
-    //setIntervalle(i_);
  
     for (auto i = 0; i < getNombre(); i++) {
         int randomY = std::rand() % Jeu::getNombreLignes();
@@ -72,10 +66,6 @@ void Vague::nouvelleVague(const float x, const float y, const float vecteur, con
     totalVagues++;
 }
 
-/*float Vague::getVitesse(){
-    return vitesse;
-}*/
-
 float Vague::getIntervalle(){
     return intervalle;
 }
@@ -86,14 +76,6 @@ int Vague::getNombre(){
 
 void Vague::setNombre(const int nb){
     nombre = nb;
-}
-
-/*void Vague::setVitesse(const float v){
-    vitesse = v;
-}*/
-
-void Vague::setIntervalle(const float i){
-    intervalle = i;
 }
 
 void Vague::draw(){

@@ -24,6 +24,7 @@ UN MISSILE
 ● destruction missiles : suppression de missiles lorsque son coordonnée X dépasse 1 (hors de la fenêtre) ou collision avec astéroide
 ● destruction vaisseau : suppression du vaisseau lorsque la vie a atteint 0
 ● Les missiles des autres vaisseaux ne détruisent pas le vaisseau
+● Les missiles ne parcours pas tous la même puissance : plus ou moins courte
 
 ● vie d'un vaisseau = 15
 ● vie du jeu = 50
@@ -51,8 +52,7 @@ UN MISSILE
 dessiner polygone : drawFillPolygone2D puis remplir le centre avec drawFillRect2D (x[4], y[4], vector*2, vector*2)
 
 
-● le nombre et la vitesse des astéroides augmente entre chaque vague, l'intervalle entre astéroides diminue.
-    Les astéroides sont placés aléatoirement.
+● Vague : le nombre des astéroides augmente entre chaque vague. Les astéroides sont placés aléatoirement, chaque astéroide possède sa vitesse.
 
 ● Lancer une vague d'astéroides en faisant 'Entrée', tant qu'il y a une vague, on ne peut pas lancer de une nouvelle vague
 
@@ -62,6 +62,13 @@ dessiner polygone : drawFillPolygone2D puis remplir le centre avec drawFillRect2
 
     Si la puissance du missile est supérieur a 2.5*vie de l'astéroide, le missile "reste en vie" et peut en tuer un autre derière.
     Sinon le missile est détruit en même temps que l'astéroide
+
+● Argent de poche au début = 100, perd de l'argent en posant les vaisseaux, en gagne en tuant les astéroides (gagne autant que la vie de l'astéroide). Il ne gagne pas d'argent lors de la collision avec un vaisseau!!
+
+
+A FAIRE :
+Tableau des différences des 4 vaisseaux
+Tableau des différences des astéroides
 
 
 METTRE COMMENTAIRE

@@ -15,6 +15,7 @@
 
 int Jeu::vie = 50;
 int Jeu::totalVaisseaux = 0;
+int Jeu::tirelire = 50;
 
 std::vector<Vaisseau> Jeu::typesVaisseaux;
 std::vector<Asteroide> Jeu::typesAsteroides;
@@ -25,10 +26,10 @@ Vague Jeu::vague;
 
 /* MÉTHODES */
 void Jeu::initTypesVaisseaux(){
-    Jeu::ajouterVaisseau(Vaisseau(0.4f, 0.0f, 0.2f, 0, 0, 5, 10, 3));// Bordeaux
-    Jeu::ajouterVaisseau(Vaisseau(0.2f, 0.4f, 0.0f, 0, 0, 2, 6, 5)); // Vert
-    Jeu::ajouterVaisseau(Vaisseau(0.4f, 0.2f, 0.0f, 0, 0, 9, 3, 1));// Marron
-    Jeu::ajouterVaisseau(Vaisseau(0.0f, 0.2f, 0.4f, 0, 0, 1, 7, 15));// Bleu
+    Jeu::ajouterVaisseau(Vaisseau(0.4f, 0.0f, 0.2f, 0, 0, 6, 10, 3, 5, 17));// Bordeaux
+    Jeu::ajouterVaisseau(Vaisseau(0.2f, 0.4f, 0.0f, 0, 0, 2, 6, 5, 4, 28)); // Vert
+    Jeu::ajouterVaisseau(Vaisseau(0.4f, 0.2f, 0.0f, 0, 0, 9, 3, 1, 3, 7));// Marron
+    Jeu::ajouterVaisseau(Vaisseau(0.0f, 0.2f, 0.4f, 0, 0, 1, 7, 15, 10, 70));// Bleu
 }
 
 void Jeu::initTypesAsteroides(){
@@ -72,6 +73,23 @@ int Jeu::getVie(){
     return vie;
 }
 
+bool Jeu::payer(const int i){
+    if (tirelire - i >= 0){
+        tirelire -= i;
+        return true;
+    }
+    return false;
+}
+
+void Jeu::gagner(const int a){
+    tirelire += a;
+    std::cout<<"Ma tirelire = "<<tirelire<<std::endl;
+}
+
+int Jeu::getTirelire(){
+    return tirelire;
+}
+
 int Jeu::getNombreLignes(){
     return nb_lignes;
 }
@@ -112,9 +130,14 @@ void Jeu::collision_Vaisseau_Asteroide(std::vector<Vaisseau *> *v, const int i, 
 }
 
 bool Jeu::impactAsteroide(Vaisseau *v, const int a){
+    int gain = Vague::asteroides[a].getVie();
     Vague::asteroides[a].reduireVie(v->getPuissance());
+    
     if (Vague::asteroides[a].getVie() == 0){
+        
+        Jeu::gagner(gain);
         Vague::asteroides.erase(Vague::asteroides.begin()+a);
+        
         std::cout<<"astéroide supprimé..."<<std::endl;
         return true;
     }
@@ -169,13 +192,16 @@ void Jeu::affichageChoix(){
     sp<<"\nPuissance : "<<std::setprecision(3)<<Jeu::choix.getPuissance();
     std::string strPuissance = sp.str();
     
-    GraphicPrimitives::drawText2D(&strFrequence[0], Jeu::choix.getX()+0.08, Jeu::choix.getY()+0.07, 0.3f, 0.5f, 0.5f);
-    GraphicPrimitives::drawText2D(&strVitesse[0], Jeu::choix.getX()+0.08, Jeu::choix.getY(), 0.3f, 0.5f, 0.5f);
-    GraphicPrimitives::drawText2D(&strPuissance[0], Jeu::choix.getX()+0.08, Jeu::choix.getY()-0.07, 0.3f, 0.5f, 0.5f);
+    float xDeriere = Jeu::choix.getX()+0.08;
+    if (xDeriere > 0.6) xDeriere = Jeu::choix.getX() - 0.3;
+    
+    GraphicPrimitives::drawText2D(&strFrequence[0], xDeriere, Jeu::choix.getY()+0.07, 0.3f, 0.5f, 0.5f);
+    GraphicPrimitives::drawText2D(&strVitesse[0], xDeriere, Jeu::choix.getY(), 0.3f, 0.5f, 0.5f);
+    GraphicPrimitives::drawText2D(&strPuissance[0], xDeriere, Jeu::choix.getY()-0.07, 0.3f, 0.5f, 0.5f);
 }
 
 void Jeu::finPartie(){
-    Vague::asteroides.clear();
+    //Vague::asteroides.clear();
     
     std::cout<<"\nAFFICHAGE FIN DE PARTIE\n"<<std::endl;
     std::cout<<"Total de vaisseaux posé pendant la partie : "<<Jeu::getTotalVaisseaux()<<std::endl;

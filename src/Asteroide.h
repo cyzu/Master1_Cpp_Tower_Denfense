@@ -24,7 +24,6 @@ class Asteroide{
     std::vector<float> x;
     std::vector<float> y;
     
-    //TODO  argent,
     // todo :  puissance astéroides
     
     public :

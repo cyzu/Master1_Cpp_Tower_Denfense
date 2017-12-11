@@ -8,7 +8,6 @@
 
 #include "Asteroide.h"
 #include <vector>
-#include <unistd.h>
 
 Asteroide::Asteroide(const float x_, const float y_, const float speed, const float v, const int life){
     centreX = x_;
@@ -97,9 +96,7 @@ void Asteroide::draw(){
     GraphicPrimitives::drawFillRect2D(x[4], y[4], getVector()*2, getVector()*2, red, green, blue);
 }
 
-void Asteroide::tick(/*const float v*/){
-    //std::cout<<"astéroide vitesse : "<<getVitesse()<<std::endl;
+void Asteroide::tick(){
     setCentreX(getCentreX() - getVitesse());
-    //sleep(1);
 }
 

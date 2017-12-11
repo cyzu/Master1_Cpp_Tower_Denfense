@@ -21,9 +21,11 @@ class Vaisseau{
     
     float x, y; //Coordonnées du milieu du vaisseau
     float frequence, vitesse, puissance;
+    int distance; //le nombre de cases que peut atteindre un missile
     float red, green, blue;
     float redInit, greenInit, blueInit;
     int vie;
+    int prix;
     
     int countF = 0;
     
@@ -36,7 +38,7 @@ class Vaisseau{
      */
     
     Vaisseau(const float r_, const float g_, const float b_, const float x, const float y,
-             const float f = 1, const float v = 1, const float p = 1);
+             const float f = 1, const float v = 1, const float p = 1, const int d = 5, const int price = 20);
     
     Vaisseau(const Vaisseau &v);
     
@@ -50,6 +52,7 @@ class Vaisseau{
     float getFrequence();
     float getVitesse();
     float getPuissance();
+    int getDistance();
     
     float getRed();
     float getGreen();
@@ -69,6 +72,7 @@ class Vaisseau{
     void setFrequence(const float f);
     void setVitesse(const float v);
     void setPuissance(const float p);
+    void setDistance(const int d);
     
     void setRed(const float r);
     void setGreen(const float g);
@@ -76,6 +80,7 @@ class Vaisseau{
     
     void setCountF(const int i);
     void reduireVie(const int i);
+    int getPrix();
     
     
     /*

@@ -7,8 +7,6 @@
 //
 
 #include "Missile.h"
-//#include <iostream>
-//#include <unistd.h>
 
 Missile::Missile(const float x_, const float y_, const float v, const float vposX_){
     x = x_;

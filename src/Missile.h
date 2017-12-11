@@ -10,7 +10,6 @@
 #define Missile_h
 
 #include "GraphicPrimitives.h"
-//#include <stdio.h>
 
 class Missile{
     private :
@@ -21,7 +20,7 @@ class Missile{
     
     public :
     
-    Missile(const float x_, const float y_, const float v, const float vposX_ = 1);
+    Missile(const float x_, const float y_, const float v,  const float vposX_ /*= 1*/);
     Missile(const Missile &m);
     ~Missile();
     

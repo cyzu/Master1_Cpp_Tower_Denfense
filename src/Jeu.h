@@ -19,6 +19,7 @@ class Jeu{
     static const int nb_lignes = 5;
     static int vie;
     static int totalVaisseaux;
+    static int tirelire;
     
     public :
     static std::vector<Vaisseau> typesVaisseaux;
@@ -31,13 +32,17 @@ class Jeu{
     static void initTypesVaisseaux();
     static void initTypesAsteroides();
     
+    static int getNombreLignes();
+    
     static float getCaseX(const int x);
     static float getCaseY(const int y);
     
     static void reduireVie(const int i);
     static int getVie();
     
-    static int getNombreLignes();
+    static bool payer(const int a);
+    static void gagner(const int a);
+    static int getTirelire();
     
     static void ajouterVaisseau(Vaisseau v);
     static void ajouterAsteroide(Asteroide a);
