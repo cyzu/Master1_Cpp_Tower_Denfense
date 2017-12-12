@@ -24,8 +24,6 @@ class Asteroide{
     std::vector<float> x;
     std::vector<float> y;
     
-    // todo :  puissance astéroides
-    
     public :
     Asteroide(const float x_, const float y_, const float speed = 0.0005,  const float v = 0.04, const int life = 5);
     
@@ -58,7 +56,7 @@ class Asteroide{
     void setVitesse(const float v);
     
     void draw();
-    void tick(/*const float v*/);
+    void tick();
 };
 
 #endif /* Asteroi_des_hpp */

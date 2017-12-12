@@ -16,7 +16,6 @@ int Vague::totalVagues = -1;
 
 Vague::Vague(const float x, const float y, const float vecteur, const int nb){
     nombre = nb;
-    
     for (auto i = 0; i < nombre; i++) {
         asteroides.push_back(Asteroide(x + (i*intervalle), y, vecteur));
     }
@@ -35,7 +34,6 @@ int Vague::getTotalVagues(){
 }
 
 void Vague::nouvelleVague(const float x, const float y, const float vecteur, const int nb){
-    //std::cout<<"Nouvelle Vague : "<<nb<<std::endl;
     std::srand(std::time(0));
     asteroides.clear();
     

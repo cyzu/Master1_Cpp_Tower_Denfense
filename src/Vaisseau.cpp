@@ -91,7 +91,6 @@ void Vaisseau::setGreen(const float g){ green = g;}
 void Vaisseau::setBlue(const float b){ blue = b;}
 
 void Vaisseau::setCountF(const int i){ countF = i; }
-//void Vaisseau::setVie(const int v) { vie = v;}
 void Vaisseau::reduireVie(const int i){
     vie = getVie() - i;
     if (vie <= 0) vie = 0;

@@ -13,6 +13,7 @@ void MyGameEngine::idle(){
             
             if (fabs((*vaisseau)[v]->getY() - Vague::asteroides[a].getCentreY()) < 0.01){
                 //si il y a un vaisseau et un astéroide sur la même ligne.
+                
                 if (!Jeu::collision_Missile_Asteroide((*vaisseau)[v], a)){
                     Jeu::collision_Vaisseau_Asteroide(&(*vaisseau), v, a);
                 }
@@ -24,16 +25,16 @@ void MyGameEngine::idle(){
         Jeu::vague.tick();
     }
     
-    // Si le premier atteind le bord
+    // Si le premier astroide atteind le bord
     if (Vague::asteroides.size() > 0 and Vague::asteroides.front().getVectorsX()[1] <= -1){
-        //std::cout<<"destruction d'astéroides..."<<std::endl;
+        
         Jeu::reduireVie(Vague::asteroides.front().getVie());
         Vague::asteroides.pop_front();
         
         //vérifier qu'il reste encore des vies dans le jeu
         if (Jeu::getVie() <= 0){
-            Jeu::finPartie();
+             sleep(2);
+             Jeu::finJeu = true;
         }
-        //else std::cout<<"Vie du jeu : "<<Jeu::getVie()<<std::endl;
     }
 }

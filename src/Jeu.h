@@ -27,7 +27,7 @@ class Jeu{
     static std::vector<Asteroide> typesAsteroides;
     static Vaisseau choix;
     static Vague vague;
-    
+    static bool finJeu;
     
     /* MÉTHODES */
     static void initTypesVaisseaux();
@@ -65,8 +65,6 @@ class Jeu{
     static void afficherInformations();
     static void afficherMessage();
     static void finPartie();
-    
-    //TODO Argent !!
 };
 
 #endif /* Case_h */

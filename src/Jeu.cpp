@@ -17,7 +17,7 @@ int Jeu::vie = 50;
 int Jeu::totalVaisseaux = 0;
 int Jeu::tirelire = 50;
 
-std::string Jeu::message = "Cliquez plusieurs fois sur une case et appuyez sur 'Entree' pour valider le vaisseau";
+std::string Jeu::message = "Cliquez plusieurs fois sur une case puis appuyez sur 'Entree' pour valider";
 
 std::vector<Vaisseau> Jeu::typesVaisseaux;
 std::vector<Asteroide> Jeu::typesAsteroides;
@@ -25,8 +25,11 @@ std::vector<Asteroide> Jeu::typesAsteroides;
 Vaisseau Jeu::choix(0.0f, 0.0f, 0.0f, -10, -10);
 Vague Jeu::vague;
 
+bool Jeu::finJeu = false;
+
 
 /* MÉTHODES */
+
 void Jeu::initTypesVaisseaux(){
     Jeu::ajouterVaisseau(Vaisseau(0.4f, 0.0f, 0.2f, 0, 0, 6, 10, 3, 5, 17));// Bordeaux
     Jeu::ajouterVaisseau(Vaisseau(0.2f, 0.4f, 0.0f, 0, 0, 2, 6, 5, 4, 28)); // Vert
@@ -85,7 +88,6 @@ bool Jeu::payer(const int i){
 
 void Jeu::gagner(const int a){
     tirelire += a;
-    //std::cout<<"Ma tirelire = "<<tirelire<<std::endl;
 }
 
 int Jeu::getTirelire(){
@@ -139,8 +141,6 @@ bool Jeu::impactAsteroide(Vaisseau *v, const int a){
         
         Jeu::gagner(gain);
         Vague::asteroides.erase(Vague::asteroides.begin()+a);
-        
-        //std::cout<<"astéroide supprimé..."<<std::endl;
         return true;
     }
     else {
@@ -164,10 +164,8 @@ void Jeu::impactVaisseau(std::vector<Vaisseau *> *v, const int i, const int a){
     (*v)[i]->reduireVie(Vague::asteroides[a].getVie());
     if ((*v)[i]->getVie() == 0){
         v->erase(v->begin()+i);
-        //std::cout<<"vaisseau supprimé..."<<std::endl;
     }
     else {
-       // std::cout<<"vaisseau "<<i<<" vie : "<<(*v)[i]->getVie()<<std::endl;
         //diminuer la couleur en fonction de la vie perdue
         float tauxRouge = (1.0 - (*v)[i]->getRed())/((*v)[i]->getVie()+2); // == vie d'un vaisseau + 1
         float tauxVert = (1.0 - (*v)[i]->getGreen())/((*v)[i]->getVie()+2);
@@ -203,11 +201,7 @@ void Jeu::affichageChoix(){
     std::ostringstream di;
     di<<"Distance : "<<Jeu::choix.getDistance();
     std::string strDistance = di.str();
-    
-    /*std::ostringstream vie;
-    vie<<"vie : "<<Jeu::choix.getVie();
-    std::string strVie = vie.str();*/
-    
+
     std::ostringstream prix;
     prix<<"$ "<<Jeu::choix.getPrix();
     std::string strPrix = prix.str();
@@ -219,12 +213,10 @@ void Jeu::affichageChoix(){
     GraphicPrimitives::drawText2D(true, &strVitesse[0], xDeriere, Jeu::choix.getY()+0.05, 0.3f, 0.5f, 0.5f);
     GraphicPrimitives::drawText2D(true, &strPuissance[0], xDeriere, Jeu::choix.getY(), 0.3f, 0.5f, 0.5f);
     GraphicPrimitives::drawText2D(true, &strDistance[0], xDeriere, Jeu::choix.getY()-0.05, 0.3f, 0.5f, 0.5f);
-    //GraphicPrimitives::drawText2D(true, &strVie[0], xDeriere, Jeu::choix.getY()-0.10, 0.3f, 0.5f, 0.5f);
     GraphicPrimitives::drawText2D(true, &strPrix[0], xDeriere, Jeu::choix.getY()-0.10, 0.3f, 0.5f, 0.5f);
 }
 
 void Jeu::afficherInformations(){
-    //nombre de vie, argent, nombre de vague
     std::string strVie = std::to_string(Jeu::getVie()) + " vie(s)";
     GraphicPrimitives::drawText2D(false, &strVie[0], -0.95, 0.88, 0.9f, 0.7f, 0.7f);
     
@@ -236,16 +228,26 @@ void Jeu::afficherInformations(){
 }
 
 void Jeu::afficherMessage(){
-    GraphicPrimitives::drawText2D(true, &message[0], -0.15, 0.88, 0.7f, 0.7f, 0.7f);
+    GraphicPrimitives::drawText2D(true, &message[0], -0.2, 0.88, 0.7f, 0.7f, 0.7f);
 }
 
 void Jeu::finPartie(){
-    //Vague::asteroides.clear();
+
+    std::string strJeu = "Vous n'avez plus de vie, la partie est terminee !";
+    GraphicPrimitives::drawText2D(false, &strJeu[0], -0.42, 0.4, 0.4f, 0.4f, 0.4f);
     
-    std::cout<<"\nAFFICHAGE FIN DE PARTIE\n"<<std::endl;
-    std::cout<<"Total de vaisseaux posé pendant la partie : "<<Jeu::getTotalVaisseaux()<<std::endl;
-    std::cout<<"Nombre de vague réussie : "<<Vague::getTotalVagues()<<std::endl;
+    std::string strVaisseaux = "Nombre de vaisseau pose : " + std::to_string(Jeu::getTotalVaisseaux());
+    GraphicPrimitives::drawText2D(false, &strVaisseaux[0], -0.25, 0.2, 0.4f, 0.3f, 0.4f);
     
-    sleep(2);
-    exit(0);
+    std::string strVague = "Nombre de vague reussie : " + std::to_string(Vague::getTotalVagues());
+    GraphicPrimitives::drawText2D(false, &strVague[0], -0.25, 0.1, 0.4f, 0.3f, 0.4f);
+
+    std::string strQuit = "Appuyez sur 'Entree' pour quitter le jeu.";
+    GraphicPrimitives::drawText2D(true, &strQuit[0], -0.25, -0.4, 0.4f, 0.4f, 0.4f);
+    
+    std::string strMerci = "Merci beaucoup et j'espere que ca vous a plu ^^";
+    GraphicPrimitives::drawText2D(false, &strMerci[0], -0.42, -0.6, 0.5f, 0.4f, 0.5f);
+    
+    std::string strAuthor = "Programming by Chloe Bensoussan";
+    GraphicPrimitives::drawText2D(true, &strAuthor[0], 0.45, -0.95, 0.3f, 0.3f, 0.3f);
 }

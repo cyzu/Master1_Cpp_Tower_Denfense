@@ -19,7 +19,7 @@ void MyControlEngine::MouseCallback(int button, int state, int x, int y){
         
         for (auto i = 0; i < vaisseau->size(); i++) {
             if ((*vaisseau)[i]->getX() == x_ && (*vaisseau)[i]->getY() == y_){
-                Jeu::setMessage("Il y a deja un vaisseau pose sur cette case !");
+                Jeu::setMessage("Il y a deja un vaisseau pose sur cette case ! Changez");
                 empty = false;
                 annuler();
             }
@@ -33,7 +33,7 @@ void MyControlEngine::MouseCallback(int button, int state, int x, int y){
         
         // Si la case est vide
         if (empty) {
-            Jeu::setMessage("Appuyez sur 'delete' ou 'backspace' pour annuler");
+            Jeu::setMessage("Appuyez sur 'delete' ou sur 'backspace' pour annuler");
             
             count++;
             int i = count % Jeu::typesVaisseaux.size();
@@ -60,33 +60,30 @@ void MyControlEngine::MouseCallback(int button, int state, int x, int y){
 void MyControlEngine::KeyboardCallback(unsigned char key, int x, int y){
     if (key == '\r'){
         // Soit on est entrain de poser des vaisseaux
-       if (adding == true){
+        if (Jeu::finJeu){
+            exit(0);
+        }
+       else if (adding == true){
            int i = count % Jeu::typesVaisseaux.size();
 
            if (Jeu::payer(Jeu::typesVaisseaux[i].getPrix())){
-               vaisseau->push_back(new Vaisseau (Jeu::typesVaisseaux[i].getRed(),
-                                    Jeu::typesVaisseaux[i].getGreen(),
-                                    Jeu::typesVaisseaux[i].getBlue(),
-                                    currentX, currentY,
-                                    Jeu::typesVaisseaux[i].getFrequence(),
-                                    Jeu::typesVaisseaux[i].getVitesse(),
-                                    Jeu::typesVaisseaux[i].getPuissance(),
-                                    Jeu::typesVaisseaux[i].getDistance(),
-                                    Jeu::typesVaisseaux[i].getPrix()));
+                Jeu::typesVaisseaux[i].setX(currentX);
+                Jeu::typesVaisseaux[i].setY(currentY);
+                vaisseau->push_back(&Jeu::typesVaisseaux[i]);
                
                Jeu::addTotalVaisseaux();
-               //std::cout<<"Ma tirelire = "<<Jeu::getTirelire()<<std::endl;
            }
-           else Jeu::setMessage("Vous n'avez pas assez d'argent pour poser ce vaisseau");// std::cout<<"Vous n'avez plus assez d'argents dans votre tirelire! ("<<Jeu::getTirelire()<<")"<<std::endl;
+           else {
+               Jeu::setMessage("Vous n'avez pas assez d'argent pour poser ce vaisseau");
+           }
            annuler();
-           
        }
         // Soit on lance une vague d'astéroides
        else {
            if (Vague::asteroides.size() == 0){
                Jeu::vague.nouvelleVague(1.1, 0, 0.04, Jeu::vague.getNombre()+1);
            }
-           else Jeu::setMessage("La vague n'est pas encore terminee, battez-vous !"); //std::cout<<"La vague n'est pas encore terminée. Battez-vous!"<<std::endl;
+           else Jeu::setMessage("La vague n'est pas encore terminee, battez-vous encore !");
        }
     }
     if (key == '\b' or key == 127){
@@ -106,6 +103,4 @@ void MyControlEngine::annuler(){
     
     currentX = -1;
     currentY = -1;
-    
-    Jeu::setMessage("Lancer une vague avec 'Entree'");
 }

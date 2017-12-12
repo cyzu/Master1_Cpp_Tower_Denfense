@@ -79,7 +79,6 @@ class Vaisseau{
     void setBlue(const float b);
     
     void setCountF(const int i);
-    //void setVie(const int v);
     void reduireVie(const int i);
     void setPrix(const int p);
     
