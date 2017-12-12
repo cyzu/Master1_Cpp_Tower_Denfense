@@ -12,7 +12,6 @@
 #include "GraphicPrimitives.h"
 #include "Jeu.h"
 #include "Missile.h"
-//#include <stdio.h>
 #include <deque>
 
 class Vaisseau{
@@ -60,6 +59,7 @@ class Vaisseau{
     
     int getCountF();
     int getVie();
+    int getPrix();
     std::deque<Missile>* getMissiles();
     
     /* Utile pour dessiner les vaisseaux */
@@ -79,8 +79,9 @@ class Vaisseau{
     void setBlue(const float b);
     
     void setCountF(const int i);
+    //void setVie(const int v);
     void reduireVie(const int i);
-    int getPrix();
+    void setPrix(const int p);
     
     
     /*

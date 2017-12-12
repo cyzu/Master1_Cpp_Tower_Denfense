@@ -167,7 +167,7 @@ void GraphicPrimitives::drawFillPolygone2D(std::vector<float>& x,std::vector<flo
 }
 
 
-void GraphicPrimitives::drawText2D(char * str,float x,float y,float r,float g, float b,float a){
+void GraphicPrimitives::drawText2D(bool small, char * str,float x,float y,float r,float g, float b, float a){
     glPushMatrix();
     glPushAttrib(GL_CURRENT_BIT);
     //on doit definir la couleur avant la fonction RasterPos sinon elle ne sera pas prise en compte ...
@@ -175,7 +175,8 @@ void GraphicPrimitives::drawText2D(char * str,float x,float y,float r,float g, f
     glRasterPos2f( x,y) ;
     // Draw your text
     for (unsigned int i=0;i<strlen(str);i++){
-        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12,*(str+i));
+       if (small) glutBitmapCharacter(GLUT_BITMAP_HELVETICA_12,*(str+i));
+       else glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18,*(str+i));
     }
     glPopAttrib(); // This sets the colour back to its original value
     glPopMatrix();

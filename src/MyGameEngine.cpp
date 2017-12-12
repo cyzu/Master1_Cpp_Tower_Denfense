@@ -26,7 +26,7 @@ void MyGameEngine::idle(){
     
     // Si le premier atteind le bord
     if (Vague::asteroides.size() > 0 and Vague::asteroides.front().getVectorsX()[1] <= -1){
-        std::cout<<"destruction d'astéroides..."<<std::endl;
+        //std::cout<<"destruction d'astéroides..."<<std::endl;
         Jeu::reduireVie(Vague::asteroides.front().getVie());
         Vague::asteroides.pop_front();
         
@@ -34,6 +34,6 @@ void MyGameEngine::idle(){
         if (Jeu::getVie() <= 0){
             Jeu::finPartie();
         }
-        else std::cout<<"Vie du jeu : "<<Jeu::getVie()<<std::endl;
+        //else std::cout<<"Vie du jeu : "<<Jeu::getVie()<<std::endl;
     }
 }

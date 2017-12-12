@@ -42,7 +42,7 @@ public:
     /**
      * Ecrit le texte a l'ecran
      */
-    static void drawText2D(char * str,float x,float y,float r,float g, float b,float a = 1.0f);
+    static void drawText2D(bool small, char * str,float x,float y,float r,float g, float b,float a = 1.0f);
     
     
 };

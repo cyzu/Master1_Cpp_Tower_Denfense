@@ -21,6 +21,8 @@ UN MISSILE
 ● puissance des missiles [1,10]: la longueur des missiles varie en fonction de sa puissance.
                                 Plus la puissance est grande, plus le missile est long.
                                 Vecteur longueur = puissance * 0.03
+● distance des missiles [1, 10] le nombre de case que la missile parcours avnt de mourir
+
 ● destruction missiles : suppression de missiles lorsque son coordonnée X dépasse 1 (hors de la fenêtre) ou collision avec astéroide
 ● destruction vaisseau : suppression du vaisseau lorsque la vie a atteint 0
 ● Les missiles des autres vaisseaux ne détruisent pas le vaisseau

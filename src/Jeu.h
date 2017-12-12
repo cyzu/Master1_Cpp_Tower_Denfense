@@ -20,6 +20,7 @@ class Jeu{
     static int vie;
     static int totalVaisseaux;
     static int tirelire;
+    static std::string message;
     
     public :
     static std::vector<Vaisseau> typesVaisseaux;
@@ -57,7 +58,12 @@ class Jeu{
     static void impactMissile(Vaisseau *v, const int a);
     static void impactVaisseau(std::vector<Vaisseau *> *v, const int i, const int a);
     
+    static void setMessage(char *c);
+    static std::string getMessage();
+    
     static void affichageChoix();
+    static void afficherInformations();
+    static void afficherMessage();
     static void finPartie();
     
     //TODO Argent !!

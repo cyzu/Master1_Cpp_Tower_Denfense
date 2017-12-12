@@ -71,6 +71,7 @@ float Vaisseau::getBlue(){ return blue;}
 
 int Vaisseau::getCountF(){ return countF; }
 int Vaisseau::getVie(){ return vie;}
+int Vaisseau::getPrix(){ return prix; }
 
 std::deque<Missile>* Vaisseau::getMissiles(){ return &missiles; }
 
@@ -90,12 +91,14 @@ void Vaisseau::setGreen(const float g){ green = g;}
 void Vaisseau::setBlue(const float b){ blue = b;}
 
 void Vaisseau::setCountF(const int i){ countF = i; }
+//void Vaisseau::setVie(const int v) { vie = v;}
 void Vaisseau::reduireVie(const int i){
     vie = getVie() - i;
     if (vie <= 0) vie = 0;
 }
+void Vaisseau::setPrix(const int p){ prix = p; }
 
-int Vaisseau::getPrix(){ return prix; }
+
 
 void Vaisseau::draw(){
     GraphicPrimitives::drawFillTriangle2D(x+getVectorX()+0.003, y, x-getVectorX()-0.002, y+getVectorY()+0.004, x-getVectorX()-0.002, y-getVectorY()-0.004, redInit, greenInit, blueInit);

@@ -35,7 +35,7 @@ int Vague::getTotalVagues(){
 }
 
 void Vague::nouvelleVague(const float x, const float y, const float vecteur, const int nb){
-    std::cout<<"Nouvelle Vague : "<<nb<<std::endl;
+    //std::cout<<"Nouvelle Vague : "<<nb<<std::endl;
     std::srand(std::time(0));
     asteroides.clear();
     

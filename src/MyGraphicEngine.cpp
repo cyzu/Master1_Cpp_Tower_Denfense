@@ -30,6 +30,10 @@ void MyGraphicEngine::Draw(){
     //GraphicPrimitives::drawLine2D(0.5, 0.5, 0.9, 0.9, 1.0f, 0.0f, 0.0f);
     //GraphicPrimitives::drawText2D(str,-0.9f,0.9f,1.0f,0.3f, 0.8f);
     
+    Jeu::afficherInformations();
+    Jeu::afficherMessage();
+    Jeu::affichageChoix();
+    
     for (auto i = 0; i < Vague::asteroides.size(); i++) {
         Vague::asteroides[i].draw();
     }
@@ -38,7 +42,7 @@ void MyGraphicEngine::Draw(){
         (*vaisseau)[i]->draw();
     }
     
-    Jeu::affichageChoix();
+    
     
 
     /*

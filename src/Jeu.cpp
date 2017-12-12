@@ -17,6 +17,8 @@ int Jeu::vie = 50;
 int Jeu::totalVaisseaux = 0;
 int Jeu::tirelire = 50;
 
+std::string Jeu::message = "Cliquez plusieurs fois sur une case et appuyez sur 'Entree' pour valider le vaisseau";
+
 std::vector<Vaisseau> Jeu::typesVaisseaux;
 std::vector<Asteroide> Jeu::typesAsteroides;
 
@@ -83,7 +85,7 @@ bool Jeu::payer(const int i){
 
 void Jeu::gagner(const int a){
     tirelire += a;
-    std::cout<<"Ma tirelire = "<<tirelire<<std::endl;
+    //std::cout<<"Ma tirelire = "<<tirelire<<std::endl;
 }
 
 int Jeu::getTirelire(){
@@ -138,7 +140,7 @@ bool Jeu::impactAsteroide(Vaisseau *v, const int a){
         Jeu::gagner(gain);
         Vague::asteroides.erase(Vague::asteroides.begin()+a);
         
-        std::cout<<"astéroide supprimé..."<<std::endl;
+        //std::cout<<"astéroide supprimé..."<<std::endl;
         return true;
     }
     else {
@@ -162,10 +164,10 @@ void Jeu::impactVaisseau(std::vector<Vaisseau *> *v, const int i, const int a){
     (*v)[i]->reduireVie(Vague::asteroides[a].getVie());
     if ((*v)[i]->getVie() == 0){
         v->erase(v->begin()+i);
-        std::cout<<"vaisseau supprimé..."<<std::endl;
+        //std::cout<<"vaisseau supprimé..."<<std::endl;
     }
     else {
-        std::cout<<"vaisseau "<<i<<" vie : "<<(*v)[i]->getVie()<<std::endl;
+       // std::cout<<"vaisseau "<<i<<" vie : "<<(*v)[i]->getVie()<<std::endl;
         //diminuer la couleur en fonction de la vie perdue
         float tauxRouge = (1.0 - (*v)[i]->getRed())/((*v)[i]->getVie()+2); // == vie d'un vaisseau + 1
         float tauxVert = (1.0 - (*v)[i]->getGreen())/((*v)[i]->getVie()+2);
@@ -177,27 +179,64 @@ void Jeu::impactVaisseau(std::vector<Vaisseau *> *v, const int i, const int a){
     }
 }
 
+void Jeu::setMessage(char *c){
+    message = c;
+}
+
+std::string Jeu::getMessage(){ return message; }
+
 void Jeu::affichageChoix(){
     Jeu::choix.draw();
     
-    std::ostringstream sf;
-    sf <<"Frequence : "<< std::setprecision(3) << Jeu::choix.getFrequence();
-    std::string strFrequence = sf.str();
+    std::ostringstream fr;
+    fr <<"Frequence : "<< std::setprecision(3) << Jeu::choix.getFrequence();
+    std::string strFrequence = fr.str();
     
-    std::ostringstream sv;
-    sv<<"\nVitesse : "<<std::setprecision(3)<<Jeu::choix.getVitesse();
-    std::string strVitesse = sv.str();
+    std::ostringstream vi;
+    vi<<"Vitesse : "<<std::setprecision(3)<<Jeu::choix.getVitesse();
+    std::string strVitesse = vi.str();
     
-    std::ostringstream sp;
-    sp<<"\nPuissance : "<<std::setprecision(3)<<Jeu::choix.getPuissance();
-    std::string strPuissance = sp.str();
+    std::ostringstream pu;
+    pu<<"Puissance : "<<std::setprecision(3)<<Jeu::choix.getPuissance();
+    std::string strPuissance = pu.str();
+    
+    std::ostringstream di;
+    di<<"Distance : "<<Jeu::choix.getDistance();
+    std::string strDistance = di.str();
+    
+    /*std::ostringstream vie;
+    vie<<"vie : "<<Jeu::choix.getVie();
+    std::string strVie = vie.str();*/
+    
+    std::ostringstream prix;
+    prix<<"$ "<<Jeu::choix.getPrix();
+    std::string strPrix = prix.str();
     
     float xDeriere = Jeu::choix.getX()+0.08;
     if (xDeriere > 0.6) xDeriere = Jeu::choix.getX() - 0.3;
     
-    GraphicPrimitives::drawText2D(&strFrequence[0], xDeriere, Jeu::choix.getY()+0.07, 0.3f, 0.5f, 0.5f);
-    GraphicPrimitives::drawText2D(&strVitesse[0], xDeriere, Jeu::choix.getY(), 0.3f, 0.5f, 0.5f);
-    GraphicPrimitives::drawText2D(&strPuissance[0], xDeriere, Jeu::choix.getY()-0.07, 0.3f, 0.5f, 0.5f);
+    GraphicPrimitives::drawText2D(true, &strFrequence[0], xDeriere, Jeu::choix.getY()+0.10, 0.3f, 0.5f, 0.5f);
+    GraphicPrimitives::drawText2D(true, &strVitesse[0], xDeriere, Jeu::choix.getY()+0.05, 0.3f, 0.5f, 0.5f);
+    GraphicPrimitives::drawText2D(true, &strPuissance[0], xDeriere, Jeu::choix.getY(), 0.3f, 0.5f, 0.5f);
+    GraphicPrimitives::drawText2D(true, &strDistance[0], xDeriere, Jeu::choix.getY()-0.05, 0.3f, 0.5f, 0.5f);
+    //GraphicPrimitives::drawText2D(true, &strVie[0], xDeriere, Jeu::choix.getY()-0.10, 0.3f, 0.5f, 0.5f);
+    GraphicPrimitives::drawText2D(true, &strPrix[0], xDeriere, Jeu::choix.getY()-0.10, 0.3f, 0.5f, 0.5f);
+}
+
+void Jeu::afficherInformations(){
+    //nombre de vie, argent, nombre de vague
+    std::string strVie = std::to_string(Jeu::getVie()) + " vie(s)";
+    GraphicPrimitives::drawText2D(false, &strVie[0], -0.95, 0.88, 0.9f, 0.7f, 0.7f);
+    
+    std::string strArgent = "$ " + std::to_string(Jeu::getTirelire());
+    GraphicPrimitives::drawText2D(false, &strArgent[0], -0.73, 0.88, 0.9f, 0.9f, 0.7f);
+    
+    std::string strVague = std::to_string(Vague::getTotalVagues()+1) + " vague(s)";
+    GraphicPrimitives::drawText2D(false, &strVague[0], -0.6, 0.88, 0.7f, 0.7f, 0.8f);
+}
+
+void Jeu::afficherMessage(){
+    GraphicPrimitives::drawText2D(true, &message[0], -0.15, 0.88, 0.7f, 0.7f, 0.7f);
 }
 
 void Jeu::finPartie(){
