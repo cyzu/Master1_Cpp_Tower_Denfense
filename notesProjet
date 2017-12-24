@@ -67,6 +67,7 @@ dessiner polygone : drawFillPolygone2D puis remplir le centre avec drawFillRect2
 
 ● Argent de poche au début = 100, perd de l'argent en posant les vaisseaux, en gagne en tuant les astéroides (gagne autant que la vie de l'astéroide). Il ne gagne pas d'argent lors de la collision avec un vaisseau!!
 
+● option pause : appuyer sur 'espace'
 
 A FAIRE :
 Tableau des différences des 4 vaisseaux
@@ -74,3 +75,7 @@ Tableau des différences des astéroides
 
 
 METTRE COMMENTAIRE
+
+
+
+compte github : jcregin

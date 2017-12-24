@@ -45,19 +45,19 @@ void Vague::nouvelleVague(const float x, const float y, const float vecteur, con
         
         if (totalVagues > 2 and totalVagues < 8){
             int randomA = std::rand() % Jeu::typesAsteroides.size()-1;
-            asteroides.push_back(Asteroide(x + (i*getIntervalle()), coordY, Jeu::typesAsteroides[randomA+1].getVitesse(),Jeu::typesAsteroides[randomA+1].getVector(), Jeu::typesAsteroides[randomA+1].getVie()));
+            asteroides.push_back(Asteroide(x + (i*getIntervalle()-0.001), coordY, Jeu::typesAsteroides[randomA+1].getVitesse(),Jeu::typesAsteroides[randomA+1].getVector(), Jeu::typesAsteroides[randomA+1].getVie()));
         }
         else if (totalVagues >= 8 and totalVagues < 13){
             int randomA = std::rand() % Jeu::typesAsteroides.size()-2;
-            asteroides.push_back(Asteroide(x + (i*getIntervalle()), coordY, Jeu::typesAsteroides[randomA+2].getVitesse(),Jeu::typesAsteroides[randomA+2].getVector(), Jeu::typesAsteroides[randomA+2].getVie()));
+            asteroides.push_back(Asteroide(x + (i*getIntervalle()-0.002), coordY, Jeu::typesAsteroides[randomA+2].getVitesse(),Jeu::typesAsteroides[randomA+2].getVector(), Jeu::typesAsteroides[randomA+2].getVie()));
         }
         else if (totalVagues >= 13 and totalVagues < 18){
             int randomA = std::rand() % Jeu::typesAsteroides.size()-3;
-            asteroides.push_back(Asteroide(x + (i*getIntervalle()), coordY, Jeu::typesAsteroides[randomA+3].getVitesse(),Jeu::typesAsteroides[randomA+3].getVector(), Jeu::typesAsteroides[randomA+3].getVie()));
+            asteroides.push_back(Asteroide(x + (i*getIntervalle()-0.003), coordY, Jeu::typesAsteroides[randomA+3].getVitesse(),Jeu::typesAsteroides[randomA+3].getVector(), Jeu::typesAsteroides[randomA+3].getVie()));
         }
         else if (totalVagues >= 18){
             int randomA = std::rand() % Jeu::typesAsteroides.size()-4;
-            asteroides.push_back(Asteroide(x + (i*getIntervalle()), coordY, Jeu::typesAsteroides[randomA+4].getVitesse(),Jeu::typesAsteroides[randomA+4].getVector(), Jeu::typesAsteroides[randomA+4].getVie()));
+            asteroides.push_back(Asteroide(x + (i*getIntervalle()-0.005), coordY, Jeu::typesAsteroides[randomA+4].getVitesse(),Jeu::typesAsteroides[randomA+4].getVector(), Jeu::typesAsteroides[randomA+4].getVie()));
         }
         else asteroides.push_back(Asteroide(x + (i*getIntervalle()), coordY, Jeu::typesAsteroides[0].getVitesse(), vecteur));
     }

@@ -21,6 +21,7 @@ class Jeu{
     static int totalVaisseaux;
     static int tirelire;
     static std::string message;
+    static bool pause;
     
     public :
     static std::vector<Vaisseau> typesVaisseaux;
@@ -58,8 +59,13 @@ class Jeu{
     static void impactMissile(Vaisseau *v, const int a);
     static void impactVaisseau(std::vector<Vaisseau *> *v, const int i, const int a);
     
+    static void changePause();
+    static bool getPause();
+    
     static void setMessage(char *c);
     static std::string getMessage();
+    
+    static void destructionObjets(std::vector<Vaisseau *> *v);
     
     static void affichageChoix();
     static void afficherInformations();

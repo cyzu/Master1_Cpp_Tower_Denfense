@@ -4,7 +4,7 @@
 
 void MyControlEngine::MouseCallback(int button, int state, int x, int y){
     
-    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
+    if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN && !Jeu::getPause()) {
 
         float x_ = Jeu::getCaseX(x);
         float y_ = Jeu::getCaseY(y);
@@ -33,7 +33,7 @@ void MyControlEngine::MouseCallback(int button, int state, int x, int y){
         
         // Si la case est vide
         if (empty) {
-            Jeu::setMessage("Appuyez sur 'delete' ou sur 'backspace' pour annuler");
+            Jeu::setMessage("Appuyez 'entree' pour valider, 'delete' ou 'backspace' pour annuler");
             
             count++;
             int i = count % Jeu::typesVaisseaux.size();
@@ -67,9 +67,15 @@ void MyControlEngine::KeyboardCallback(unsigned char key, int x, int y){
            int i = count % Jeu::typesVaisseaux.size();
 
            if (Jeu::payer(Jeu::typesVaisseaux[i].getPrix())){
-                Jeu::typesVaisseaux[i].setX(currentX);
-                Jeu::typesVaisseaux[i].setY(currentY);
-                vaisseau->push_back(&Jeu::typesVaisseaux[i]);
+               vaisseau->push_back(new Vaisseau(Jeu::typesVaisseaux[i].getRed(),
+                                            Jeu::typesVaisseaux[i].getGreen(),
+                                            Jeu::typesVaisseaux[i].getBlue(),
+                                            currentX, currentY,
+                                            Jeu::typesVaisseaux[i].getFrequence(),
+                                            Jeu::typesVaisseaux[i].getVitesse(),
+                                            Jeu::typesVaisseaux[i].getPuissance(),
+                                            Jeu::typesVaisseaux[i].getDistance(),
+                                            Jeu::typesVaisseaux[i].getPrix()));
                
                Jeu::addTotalVaisseaux();
            }
@@ -83,11 +89,21 @@ void MyControlEngine::KeyboardCallback(unsigned char key, int x, int y){
            if (Vague::asteroides.size() == 0){
                Jeu::vague.nouvelleVague(1.1, 0, 0.04, Jeu::vague.getNombre()+1);
            }
-           else Jeu::setMessage("La vague n'est pas encore terminee, battez-vous encore !");
+           else Jeu::setMessage("La vague n'est pas encore terminee, battez-vous !");
        }
     }
-    if (key == '\b' or key == 127){
+    else if (key == '\b' or key == 127){
+        Jeu::setMessage("Placez un vaisseau ou lancer une vague !");
         annuler();
+    }
+    else if (key == ' '){
+        Jeu::changePause();
+        if (Jeu::getPause()){
+            Jeu::setMessage("Jeu mis sur pause, on vous attend !");
+        }
+        else {
+            Jeu::setMessage("C'est reparti !");
+        }
     }
 }
 

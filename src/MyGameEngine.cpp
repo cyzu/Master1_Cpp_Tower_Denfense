@@ -1,10 +1,13 @@
 #include "MyGameEngine.h"
 #include "Jeu.h"
 #include <math.h>
-#include <unistd.h>
 
 /* méthode qui anime tous les objects dans la fenêtre */
 void MyGameEngine::idle(){
+    
+    if (Jeu::getPause()) {
+        return;
+    }
     
     for (int v = 0; v < vaisseau->size(); v++) {
         (*vaisseau)[v]->tick();
@@ -33,8 +36,8 @@ void MyGameEngine::idle(){
         
         //vérifier qu'il reste encore des vies dans le jeu
         if (Jeu::getVie() <= 0){
-             sleep(2);
-             Jeu::finJeu = true;
+            Jeu::finJeu = true;
+            Jeu::destructionObjets(&(*vaisseau));
         }
     }
 }

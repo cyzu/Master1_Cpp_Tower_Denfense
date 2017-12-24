@@ -13,11 +13,11 @@
 #include <sstream>
 #include <iomanip>
 
-int Jeu::vie = 50;
+int Jeu::vie = 20;
 int Jeu::totalVaisseaux = 0;
 int Jeu::tirelire = 50;
 
-std::string Jeu::message = "Cliquez plusieurs fois sur une case puis appuyez sur 'Entree' pour valider";
+std::string Jeu::message = "Cliquez plusieurs fois sur une case pour choisir un vaisseau";
 
 std::vector<Vaisseau> Jeu::typesVaisseaux;
 std::vector<Asteroide> Jeu::typesAsteroides;
@@ -25,6 +25,7 @@ std::vector<Asteroide> Jeu::typesAsteroides;
 Vaisseau Jeu::choix(0.0f, 0.0f, 0.0f, -10, -10);
 Vague Jeu::vague;
 
+bool Jeu::pause = false;
 bool Jeu::finJeu = false;
 
 
@@ -32,17 +33,17 @@ bool Jeu::finJeu = false;
 
 void Jeu::initTypesVaisseaux(){
     Jeu::ajouterVaisseau(Vaisseau(0.4f, 0.0f, 0.2f, 0, 0, 6, 10, 3, 5, 17));// Bordeaux
-    Jeu::ajouterVaisseau(Vaisseau(0.2f, 0.4f, 0.0f, 0, 0, 2, 6, 5, 4, 28)); // Vert
-    Jeu::ajouterVaisseau(Vaisseau(0.4f, 0.2f, 0.0f, 0, 0, 9, 3, 1, 3, 7));// Marron
-    Jeu::ajouterVaisseau(Vaisseau(0.0f, 0.2f, 0.4f, 0, 0, 1, 7, 15, 10, 70));// Bleu
+    Jeu::ajouterVaisseau(Vaisseau(0.2f, 0.4f, 0.0f, 0, 0, 2, 6, 5, 10, 25)); // Vert
+    Jeu::ajouterVaisseau(Vaisseau(0.4f, 0.2f, 0.0f, 0, 0, 9, 3, 1, 1, 7));// Marron
+    Jeu::ajouterVaisseau(Vaisseau(0.0f, 0.2f, 0.4f, 0, 0, 1, 7, 15, 10, 50));// Bleu
 }
 
 void Jeu::initTypesAsteroides(){
-    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.0005, 0.035, 4));
-    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.0007, 0.04, 6));
-    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.0009, 0.045, 7));
-    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.001, 0.05, 8));
-    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.0012, 0.055, 9));
+    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.0008, 0.035, 4));
+    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.0010, 0.04, 6));
+    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.0012, 0.045, 7));
+    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.0015, 0.05, 8));
+    Jeu::ajouterAsteroide(Asteroide(0, 0, 0.0020, 0.055, 9));
 }
 
 float Jeu::getCaseX(const int x){
@@ -177,6 +178,30 @@ void Jeu::impactVaisseau(std::vector<Vaisseau *> *v, const int i, const int a){
     }
 }
 
+void Jeu::changePause(){
+    pause = !getPause();
+}
+
+bool Jeu::getPause(){
+    return pause;
+}
+
+void Jeu::destructionObjets(std::vector<Vaisseau *> *v){
+    sleep(1);
+    Vague::asteroides.clear();
+    
+    for (int i = 0; i < v->size(); i++) {
+        for (int j = 0; j < (*v)[i]->getMissiles()->size(); j++) {
+            (*v)[i]->getMissiles()[j].clear();
+        }
+    }
+    v->clear();
+    
+    sleep(1);
+    Jeu::typesVaisseaux.clear();
+    Jeu::typesAsteroides.clear();
+}
+
 void Jeu::setMessage(char *c){
     message = c;
 }
@@ -223,8 +248,8 @@ void Jeu::afficherInformations(){
     std::string strArgent = "$ " + std::to_string(Jeu::getTirelire());
     GraphicPrimitives::drawText2D(false, &strArgent[0], -0.73, 0.88, 0.9f, 0.9f, 0.7f);
     
-    std::string strVague = std::to_string(Vague::getTotalVagues()+1) + " vague(s)";
-    GraphicPrimitives::drawText2D(false, &strVague[0], -0.6, 0.88, 0.7f, 0.7f, 0.8f);
+    std::string strVague = "vague " + std::to_string(Vague::getTotalVagues()+1);
+    GraphicPrimitives::drawText2D(false, &strVague[0], -0.55, 0.88, 0.7f, 0.7f, 0.8f);
 }
 
 void Jeu::afficherMessage(){

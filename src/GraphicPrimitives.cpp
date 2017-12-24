@@ -211,8 +211,6 @@ void GraphicPrimitives::drawSpritedRect2D(float x,float y,float width,float heig
     glPopAttrib(); // This sets the colour back to its original value
 }
 
-
-
 */
 
 
