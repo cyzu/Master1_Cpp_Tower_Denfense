@@ -12,8 +12,6 @@
 		2EFFA1061F89199500D3BA04 /* MyGraphicEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EFFA0FD1F89199500D3BA04 /* MyGraphicEngine.cpp */; };
 		2EFFA10A1F8919BF00D3BA04 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFFA1091F8919BF00D3BA04 /* OpenGL.framework */; };
 		2EFFA10C1F8919C600D3BA04 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFFA10B1F8919C600D3BA04 /* GLUT.framework */; };
-		2EFFA1101F891BEE00D3BA04 /* libEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EFFA10F1F891BEE00D3BA04 /* libEngine.a */; };
-		7D8BB33D1F8E621400BC2230 /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = 7D8BB33C1F8E621400BC2230 /* makefile */; };
 		7DD1FE421FF06A410002195C /* GraphicPrimitives.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1FE411FF06A410002195C /* GraphicPrimitives.cpp */; };
 		7DD1FE481FF06A690002195C /* Asteroide.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1FE431FF06A690002195C /* Asteroide.cpp */; };
 		7DD1FE491FF06A690002195C /* Jeu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1FE441FF06A690002195C /* Jeu.cpp */; };
@@ -21,6 +19,8 @@
 		7DD1FE4B1FF06A690002195C /* Vague.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1FE461FF06A690002195C /* Vague.cpp */; };
 		7DD1FE4C1FF06A690002195C /* Vaisseau.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1FE471FF06A690002195C /* Vaisseau.cpp */; };
 		7DD1FE4E1FF06A790002195C /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DD1FE4D1FF06A790002195C /* main.cpp */; };
+		7DF8DABA1FF1A10D00F6310D /* libEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DF8DAB81FF1A10D00F6310D /* libEngine.a */; };
+		7DF8DABB1FF1A10D00F6310D /* makefile in Sources */ = {isa = PBXBuildFile; fileRef = 7DF8DAB91FF1A10D00F6310D /* makefile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,9 +50,6 @@
 		2EFFA0FD1F89199500D3BA04 /* MyGraphicEngine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyGraphicEngine.cpp; sourceTree = "<group>"; };
 		2EFFA1091F8919BF00D3BA04 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		2EFFA10B1F8919C600D3BA04 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
-		2EFFA10F1F891BEE00D3BA04 /* libEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEngine.a; path = libMac/libEngine.a; sourceTree = "<group>"; };
-		7D8BB33C1F8E621400BC2230 /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
-		7DA2BCB41FCDD4B9007F6225 /* notesProjet */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notesProjet; sourceTree = "<group>"; };
 		7DD1FE371FF0677A0002195C /* MyControlEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyControlEngine.h; path = InterfaceGraphics/MyControlEngine.h; sourceTree = "<group>"; };
 		7DD1FE381FF0677A0002195C /* MyGameEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyGameEngine.h; path = InterfaceGraphics/MyGameEngine.h; sourceTree = "<group>"; };
 		7DD1FE391FF0677A0002195C /* MyGraphicEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyGraphicEngine.h; path = InterfaceGraphics/MyGraphicEngine.h; sourceTree = "<group>"; };
@@ -68,6 +65,8 @@
 		7DD1FE461FF06A690002195C /* Vague.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vague.cpp; path = Modeles/Vague.cpp; sourceTree = "<group>"; };
 		7DD1FE471FF06A690002195C /* Vaisseau.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Vaisseau.cpp; path = Modeles/Vaisseau.cpp; sourceTree = "<group>"; };
 		7DD1FE4D1FF06A790002195C /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = Main/main.cpp; sourceTree = "<group>"; };
+		7DF8DAB81FF1A10D00F6310D /* libEngine.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libEngine.a; path = bin/libEngine.a; sourceTree = "<group>"; };
+		7DF8DAB91FF1A10D00F6310D /* makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = makefile; path = bin/makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,9 +74,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EFFA1101F891BEE00D3BA04 /* libEngine.a in Frameworks */,
 				2EFFA10C1F8919C600D3BA04 /* GLUT.framework in Frameworks */,
 				2EFFA10A1F8919BF00D3BA04 /* OpenGL.framework in Frameworks */,
+				7DF8DABA1FF1A10D00F6310D /* libEngine.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,7 +86,6 @@
 		2EFFA0D71F8918B200D3BA04 = {
 			isa = PBXGroup;
 			children = (
-				7DA2BCB41FCDD4B9007F6225 /* notesProjet */,
 				2EFFA0EA1F89199500D3BA04 /* include */,
 				2EFFA0F71F89199500D3BA04 /* src */,
 				2EFFA0E11F8918B200D3BA04 /* Products */,
@@ -144,8 +142,8 @@
 		2EFFA1081F8919BF00D3BA04 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7D8BB33C1F8E621400BC2230 /* makefile */,
-				2EFFA10F1F891BEE00D3BA04 /* libEngine.a */,
+				7DF8DAB81FF1A10D00F6310D /* libEngine.a */,
+				7DF8DAB91FF1A10D00F6310D /* makefile */,
 				2EFFA10B1F8919C600D3BA04 /* GLUT.framework */,
 				2EFFA1091F8919BF00D3BA04 /* OpenGL.framework */,
 			);
@@ -253,6 +251,7 @@
 			files = (
 				7DD1FE4A1FF06A690002195C /* Missile.cpp in Sources */,
 				2EFFA1061F89199500D3BA04 /* MyGraphicEngine.cpp in Sources */,
+				7DF8DABB1FF1A10D00F6310D /* makefile in Sources */,
 				7DD1FE481FF06A690002195C /* Asteroide.cpp in Sources */,
 				7DD1FE491FF06A690002195C /* Jeu.cpp in Sources */,
 				7DD1FE4E1FF06A790002195C /* main.cpp in Sources */,
@@ -260,7 +259,6 @@
 				7DD1FE421FF06A410002195C /* GraphicPrimitives.cpp in Sources */,
 				7DD1FE4B1FF06A690002195C /* Vague.cpp in Sources */,
 				2EFFA1051F89199500D3BA04 /* MyGameEngine.cpp in Sources */,
-				7D8BB33D1F8E621400BC2230 /* makefile in Sources */,
 				7DD1FE4C1FF06A690002195C /* Vaisseau.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +361,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/include/lib",
 					"$(PROJECT_DIR)/libMac",
+					"$(PROJECT_DIR)/bin",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -376,6 +375,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/include/lib",
 					"$(PROJECT_DIR)/libMac",
+					"$(PROJECT_DIR)/bin",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
