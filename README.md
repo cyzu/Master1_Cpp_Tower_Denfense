@@ -4,7 +4,7 @@ Bonjour et bienvenue dans mon projet !
 
 C'est un jeu de Tower Defense codé pendant les études universitaires pour apprendre le C++. Simple à prendre en main, je vous laisse découvrir ce jeu !
 
-![]()
+![](https://github.com/cyzu/Master1_Cpp_Vaisseaux/blob/master/doc/picture.png)
 
 ## Pour commencer
 
@@ -49,6 +49,8 @@ Si un astéroïde atteint le coté gauche de la fenêtre, le nombre de vie rédu
 ### Argents
 
 Chaque vaisseau possède un coût. Vous pouvez gagner des pièces en tuant les astéroïdes.
+
+###### A tout moment de la partie appuyez sur ```Espace``` pour mettre sur pause.
 
 ## Rapport
 
