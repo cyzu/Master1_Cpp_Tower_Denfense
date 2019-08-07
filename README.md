@@ -58,8 +58,7 @@ Le rapport final du projet se trouve [ici](https://github.com/cyzu/Master1_Cpp_V
 
 ## Auteur
 
-* **Chloé Bensoussan** - [cyzu](https://github.com/cyzu)
-Etudiante en master 1 IFI à l'Université de Nice Sophia-Antipolis
+* **Chloé Bensoussan** - [cyzu](https://github.com/cyzu), étudiante en master 1 IFI à l'Université de Nice Sophia-Antipolis
 
 ## Date
 
